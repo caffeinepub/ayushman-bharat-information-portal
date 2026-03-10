@@ -6,6 +6,7 @@ import {
 } from "@tanstack/react-router";
 import Layout from "./components/Layout";
 import About from "./pages/About";
+import AskADoubtPage from "./pages/AskADoubtPage";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import EligibilityChecker from "./pages/EligibilityChecker";
@@ -73,6 +74,12 @@ const blogRoute = createRoute({
   component: Blog,
 });
 
+const askADoubtRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/ask-a-doubt",
+  component: AskADoubtPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   aboutRoute,
@@ -83,6 +90,7 @@ const routeTree = rootRoute.addChildren([
   contactRoute,
   teamRoute,
   blogRoute,
+  askADoubtRoute,
 ]);
 
 const router = createRouter({ routeTree });

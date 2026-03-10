@@ -14,6 +14,7 @@ const navLinks = [
   { path: "/contact", label: "Contact" },
   { path: "/team", label: "Team" },
   { path: "/blog", label: "Blog" },
+  { path: "/ask-a-doubt", label: "Ask a Doubt" },
 ];
 
 export default function Navigation() {

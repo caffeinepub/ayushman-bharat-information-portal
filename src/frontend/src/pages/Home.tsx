@@ -1,10 +1,13 @@
+import AskADoubt from "@/components/AskADoubt";
 import BenefitsSection from "@/components/BenefitsSection";
+import CustomerReviews from "@/components/CustomerReviews";
 import DiseasesCovered from "@/components/DiseasesCovered";
 import HeroSection from "@/components/HeroSection";
 import HowItWorks from "@/components/HowItWorks";
 import SEOHead from "@/components/SEOHead";
 import SchemeComponents from "@/components/SchemeComponents";
 import StatsBar from "@/components/StatsBar";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "@tanstack/react-router";
@@ -14,6 +17,7 @@ import {
   HelpCircle,
   Info,
   MapPin,
+  MessageCircleQuestion,
   Phone,
   Users,
 } from "lucide-react";
@@ -56,6 +60,12 @@ const quickLinks = [
     description: "Meet the team behind this PM-JAY information portal",
     link: "/team",
   },
+  {
+    icon: MessageCircleQuestion,
+    title: "Ask a Doubt",
+    description: "Submit your PM-JAY questions and get answers within 24 hours",
+    link: "/ask-a-doubt",
+  },
 ];
 
 export default function Home() {
@@ -72,6 +82,9 @@ export default function Home() {
       <BenefitsSection />
       <SchemeComponents />
       <DiseasesCovered />
+      <WhyChooseUs />
+      <CustomerReviews />
+      <AskADoubt />
 
       {/* Explore Resources */}
       <section className="bg-muted/30 py-16 md:py-20">

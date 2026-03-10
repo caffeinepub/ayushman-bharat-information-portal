@@ -1,35 +1,28 @@
 # Ayushman Bharat Information Portal
 
 ## Current State
-The portal has a hero section, benefits section, quick links on the home page, plus pages for About, How to Apply, FAQ, Hospitals, Blog, Contact, and Team. The structure is functional but lacks key informational sections and deeper content on several pages.
+The Home page has: HeroSection, StatsBar, HowItWorks, BenefitsSection, SchemeComponents, DiseasesCovered, and an Explore Resources quick links grid. There is an existing FAQ page with search and accordion. No customer reviews or user doubt/question submission section exists.
 
 ## Requested Changes (Diff)
 
 ### Add
-- **Stats/Impact bar on Home** — a horizontal strip showing key numbers (55 crore+ beneficiaries, 27,000+ hospitals, 1,949+ procedures, ₹5 lakh coverage) placed between hero and benefits sections
-- **How It Works section on Home** — a simple 3-step visual flow (Check Eligibility → Get Card → Get Treatment) to guide first-time visitors
-- **Schemes Covered section on Home** — brief cards for PM-JAY and AB-HWC (Health & Wellness Centres) components of Ayushman Bharat
-- **Diseases & Procedures highlight section on Home** — a callout listing major disease categories covered (cancer, heart, kidney, ortho, etc.)
-- **Expanded Footer** — 4 columns: About, Quick Links, Important Links (official portals), Contact & Helpline
-- **Timeline section on About page** — key milestones of PM-JAY from 2018 launch to present
-- **State-wise rollout note on About page** — mention that the scheme is active in 33+ states/UTs
-- **Documents checklist section on HowToApply page** — clearly formatted required documents table
+- **CustomerReviews component**: A section on the Home page showing 6 pre-written citizen testimonials (star ratings, name, location, short review text) in a responsive card grid.
+- **AskADoubt component**: A section on the Home page (and/or a dedicated page) with a form where users can type their name, contact/email, and their question/doubt. On submission, show a success message. Also display a few "Common Doubts Answered" using accordion-style Q&A.
+- **WhyChooseUs / Key Highlights section**: A visually appealing section highlighting why this portal is trustworthy and helpful (e.g., Free & Accurate Info, Government-backed, Easy Language, Mobile Friendly).
+- Route `/ask-a-doubt` added to App.tsx for the full doubt page.
 
 ### Modify
-- **BenefitsSection** — add two more benefit cards: "1,949+ Procedures Covered" and "33+ States Coverage"
-- **Home page Quick Access section** — rename to "Explore Our Resources" and add About PM-JAY card
-- **Footer** — restructure from 3 to 4 columns with richer content
+- **Home.tsx**: Add CustomerReviews, AskADoubt (short version with CTA to full page), and WhyChooseUs sections between DiseasesCovered and Explore Resources.
+- **Navigation.tsx**: Add "Ask a Doubt" nav link.
 
 ### Remove
-- Benefits illustration image from BenefitsSection bottom (clutters layout)
+- Nothing removed.
 
 ## Implementation Plan
-1. Add Stats bar component with animated counters (static values, no JS animation needed)
-2. Add HowItWorks component (3-step horizontal flow with icons)
-3. Add SchemeComponents component (PM-JAY + AB-HWC cards)
-4. Add DiseasesCovered callout section on home
-5. Update BenefitsSection to include 2 additional benefit cards (6 total)
-6. Update Home page to compose new sections in order: Hero → Stats → HowItWorks → Benefits → SchemeComponents → Diseases → QuickAccess
-7. Update Footer with 4-column layout and richer links
-8. Update About page with Timeline section and state rollout note
-9. Update HowToApply with a dedicated documents checklist section
+1. Create `src/frontend/src/components/CustomerReviews.tsx` with 6 sample citizen reviews.
+2. Create `src/frontend/src/components/AskADoubt.tsx` with a form (name, contact, question) + common doubts accordion.
+3. Create `src/frontend/src/components/WhyChooseUs.tsx` with highlight cards.
+4. Create `src/frontend/src/pages/AskADoubtPage.tsx` as a full page version.
+5. Update `Home.tsx` to include the three new sections.
+6. Update `App.tsx` to add the `/ask-a-doubt` route.
+7. Update `Navigation.tsx` to add the Ask a Doubt nav link.
