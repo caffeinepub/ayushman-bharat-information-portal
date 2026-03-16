@@ -39,7 +39,7 @@ export default function MythVsFact() {
           <span className="mb-3 inline-block rounded-full border border-saffron/40 bg-saffron/10 px-4 py-1.5 text-sm font-semibold text-saffron">
             Clearing Confusion
           </span>
-          <h2 className="section-heading mb-4 text-3xl font-bold text-white md:text-4xl">
+          <h2 className="section-heading mb-4 text-3xl font-bold text-foreground md:text-4xl">
             Common Myths vs. Facts about PM-JAY
           </h2>
           <p className="mx-auto max-w-2xl text-base text-foreground/65">
@@ -56,30 +56,30 @@ export default function MythVsFact() {
               data-ocid={`myth.item.${i + 1}`}
             >
               {/* Myth */}
-              <div className="flex items-start gap-4 rounded-xl border border-red-500/20 bg-red-500/8 p-5">
-                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-red-500/20 text-lg">
+              <div className="flex items-start gap-4 rounded-xl border border-red-200 bg-red-50 p-5">
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-red-100 text-lg">
                   ❌
                 </span>
                 <div>
-                  <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-red-400">
+                  <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-red-600">
                     Myth
                   </span>
-                  <p className="text-base leading-relaxed text-white/85">
+                  <p className="text-base leading-relaxed text-slate-800">
                     &ldquo;{item.myth}&rdquo;
                   </p>
                 </div>
               </div>
 
               {/* Fact */}
-              <div className="flex items-start gap-4 rounded-xl border border-green-500/20 bg-green-500/8 p-5">
-                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-green-500/20 text-lg">
+              <div className="flex items-start gap-4 rounded-xl border border-green-200 bg-green-50 p-5">
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-lg">
                   ✅
                 </span>
                 <div>
                   <span className="mb-1 block text-xs font-bold uppercase tracking-wider text-govt-green">
                     Fact
                   </span>
-                  <p className="text-base leading-relaxed text-white">
+                  <p className="text-base leading-relaxed text-slate-800">
                     {item.fact}
                   </p>
                 </div>

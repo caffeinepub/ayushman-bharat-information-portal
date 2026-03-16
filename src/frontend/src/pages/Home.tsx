@@ -33,6 +33,17 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
+const DARK_SECTION = {
+  background:
+    "linear-gradient(160deg, oklch(0.14 0.04 15), oklch(0.11 0.03 18))",
+};
+
+const DARK_CARD = {
+  background:
+    "linear-gradient(135deg, oklch(0.18 0.05 15), oklch(0.15 0.04 18))",
+  border: "1px solid oklch(0.22 0.055 15)",
+};
+
 const quickLinks = [
   {
     icon: Info,
@@ -84,36 +95,26 @@ const objectives = [
     emoji: "🏥",
     title: "Financial Protection",
     desc: "Provide financial protection against catastrophic health expenditure for India's most vulnerable families.",
-    bg: "bg-saffron/10",
-    border: "border-saffron/30",
   },
   {
     emoji: "🌍",
     title: "Universal Access",
     desc: "Ensure universal access to quality healthcare for the poorest 40% families across India.",
-    bg: "bg-accent/30",
-    border: "border-border",
   },
   {
     emoji: "💊",
     title: "1,949+ Procedures",
     desc: "Cover 1,949+ medical procedures including surgeries, diagnostics, and medicines.",
-    bg: "bg-govt-green/10",
-    border: "border-govt-green/25",
   },
   {
     emoji: "🏦",
     title: "Zero Out-of-Pocket",
     desc: "Eliminate out-of-pocket healthcare costs for BPL and low-income families.",
-    bg: "bg-saffron/10",
-    border: "border-saffron/30",
   },
   {
     emoji: "🤝",
     title: "Reduce Inequality",
     desc: "Reduce healthcare inequality between urban and rural India through equitable access.",
-    bg: "bg-accent/30",
-    border: "border-border",
   },
 ];
 
@@ -223,20 +224,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Objectives Section — section-mixed is a light background */}
+      {/* Objectives Section */}
       <section
-        className="section-mixed py-16 md:py-20"
+        style={DARK_SECTION}
+        className="py-16 md:py-20"
         data-ocid="objectives.section"
       >
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <span className="mb-3 inline-block rounded-full border border-saffron/40 bg-saffron/10 px-4 py-1.5 text-sm font-semibold text-saffron">
+            <span className="mb-3 inline-block rounded-full border border-saffron/50 bg-saffron/20 px-4 py-1.5 text-sm font-semibold text-saffron">
               Mission & Vision
             </span>
-            <h2 className="section-heading mb-4 text-3xl font-bold text-navy md:text-4xl">
+            <h2 className="section-heading mb-4 text-3xl font-bold text-white md:text-4xl">
               Objectives of PM-JAY
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
               PM-JAY aims to bring universal health coverage to India's most
               vulnerable communities through targeted financial protection.
             </p>
@@ -245,14 +247,15 @@ export default function Home() {
             {objectives.map((obj, i) => (
               <div
                 key={obj.title}
-                className={`rounded-xl border ${obj.border} ${obj.bg} p-5 shadow-sm transition-all hover:shadow-md`}
+                style={DARK_CARD}
+                className="rounded-xl p-5 shadow-sm transition-all hover:shadow-md"
                 data-ocid={`objectives.item.${i + 1}`}
               >
                 <div className="mb-3 text-3xl">{obj.emoji}</div>
-                <h3 className="mb-2 text-base font-bold text-navy">
+                <h3 className="mb-2 text-base font-bold text-white">
                   {obj.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-gray-300 leading-relaxed">
                   {obj.desc}
                 </p>
               </div>
@@ -261,20 +264,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Citizen Services — section-blue is a light background */}
+      {/* Citizen Services */}
       <section
-        className="section-blue py-16 md:py-20"
+        style={DARK_SECTION}
+        className="py-16 md:py-20"
         data-ocid="citizen.section"
       >
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <span className="mb-3 inline-block rounded-full border border-saffron/40 bg-saffron/10 px-4 py-1.5 text-sm font-semibold text-saffron">
+            <span className="mb-3 inline-block rounded-full border border-saffron/50 bg-saffron/20 px-4 py-1.5 text-sm font-semibold text-saffron">
               Citizen Services
             </span>
-            <h2 className="section-heading mb-4 text-3xl font-bold text-navy md:text-4xl">
+            <h2 className="section-heading mb-4 text-3xl font-bold text-white md:text-4xl">
               How to Access Your Benefits
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
               3 simple steps to access free healthcare under PM-JAY
             </p>
           </div>
@@ -307,7 +311,8 @@ export default function Home() {
             ].map((item, i) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-border bg-white p-6 text-center shadow-sm hover:border-saffron/40 transition-all"
+                style={DARK_CARD}
+                className="rounded-xl p-6 text-center hover:border-saffron/40 transition-all"
                 data-ocid={`citizen.item.${i + 1}`}
               >
                 <div className="mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-saffron/20 text-2xl">
@@ -316,10 +321,10 @@ export default function Home() {
                 <div className="mb-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-saffron text-sm font-bold text-white">
                   {item.step}
                 </div>
-                <h3 className="mb-2 text-xl font-bold text-navy">
+                <h3 className="mb-2 text-xl font-bold text-white">
                   {item.title}
                 </h3>
-                <p className="mb-4 text-gray-600 text-sm leading-relaxed">
+                <p className="mb-4 text-gray-300 text-sm leading-relaxed">
                   {item.desc}
                 </p>
                 <Link to={item.link}>
@@ -338,25 +343,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Impact of the Scheme Section — section-green is a light background */}
+      {/* Impact of the Scheme Section */}
       <section
-        className="section-green py-16 md:py-20"
+        style={DARK_SECTION}
+        className="py-16 md:py-20"
         data-ocid="impact.section"
       >
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <span className="mb-3 inline-block rounded-full border border-govt-green/30 bg-govt-green/10 px-4 py-1.5 text-sm font-semibold text-govt-green">
+            <span className="mb-3 inline-block rounded-full border border-govt-green/50 bg-govt-green/20 px-4 py-1.5 text-sm font-semibold text-govt-green">
               Real-World Impact
             </span>
-            <h2 className="section-heading mb-4 text-3xl font-bold text-navy md:text-4xl">
+            <h2 className="section-heading mb-4 text-3xl font-bold text-white md:text-4xl">
               Impact of Ayushman Bharat
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
               How PM-JAY is transforming healthcare for India's poorest families
             </p>
           </div>
 
-          {/* Stat cards have colored (dark) backgrounds so text-white is fine */}
           <div className="mb-12 grid gap-6 md:grid-cols-3">
             {impactStats.map((stat, i) => (
               <div
@@ -381,10 +386,11 @@ export default function Home() {
             {impactTestimonials.map((item, i) => (
               <div
                 key={item.name}
-                className="rounded-xl border border-border bg-white p-6 shadow-sm"
+                style={DARK_CARD}
+                className="rounded-xl p-6 shadow-sm"
                 data-ocid={`impact.card.${i + 1}`}
               >
-                <p className="mb-5 text-base italic text-gray-600 leading-relaxed">
+                <p className="mb-5 text-base italic text-gray-300 leading-relaxed">
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
@@ -392,8 +398,8 @@ export default function Home() {
                     {item.initial}
                   </div>
                   <div>
-                    <p className="font-semibold text-navy">{item.name}</p>
-                    <p className="text-xs text-gray-500">{item.location}</p>
+                    <p className="font-semibold text-white">{item.name}</p>
+                    <p className="text-xs text-gray-400">{item.location}</p>
                   </div>
                 </div>
               </div>
@@ -402,15 +408,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NHA Implementation & Governance — section-mixed is a light background */}
-      <section className="section-mixed py-12" data-ocid="governance.section">
+      {/* NHA Implementation & Governance */}
+      <section
+        style={DARK_SECTION}
+        className="py-12"
+        data-ocid="governance.section"
+      >
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 rounded-2xl border border-border bg-white p-8 shadow-sm">
+          <div
+            style={DARK_CARD}
+            className="flex flex-col md:flex-row items-center justify-between gap-8 rounded-2xl p-8"
+          >
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold text-navy mb-2">
+              <h3 className="text-xl font-bold text-white mb-2">
                 Managed by National Health Authority
               </h3>
-              <p className="text-gray-600 text-sm max-w-md">
+              <p className="text-gray-300 text-sm max-w-md">
                 The National Health Authority (NHA) is the apex body
                 implementing PM-JAY. It oversees hospital empanelment,
                 beneficiary verification, and claims processing across all 33
@@ -426,10 +439,14 @@ export default function Home() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="flex flex-col items-center gap-1 rounded-lg border border-border bg-background px-5 py-3 text-center"
+                  style={{
+                    background: "oklch(0.20 0.05 15)",
+                    border: "1px solid oklch(0.26 0.06 15)",
+                  }}
+                  className="flex flex-col items-center gap-1 rounded-lg px-5 py-3 text-center"
                 >
                   <span className="text-2xl">{item.icon}</span>
-                  <span className="text-sm font-semibold text-navy">
+                  <span className="text-sm font-semibold text-white">
                     {item.label}
                   </span>
                 </div>
@@ -439,8 +456,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Healthcare for Every Senior Citizen Section — section-saffron is a light background */}
-      <section className="section-saffron py-12">
+      {/* Healthcare for Every Senior Citizen */}
+      <section style={DARK_SECTION} className="py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto">
             <img
@@ -449,10 +466,10 @@ export default function Home() {
               className="w-full md:w-80 h-56 object-cover rounded-2xl shadow-lg"
             />
             <div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-navy mb-3">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">
                 Healthcare for Every Senior Citizen
               </h2>
-              <p className="text-lg text-gray-700 mb-4">
+              <p className="text-lg text-gray-300 mb-4">
                 Ayushman Bharat PM-JAY ensures that no elderly citizen has to
                 worry about healthcare costs. Senior citizens get priority
                 access to cashless treatment at 27,000+ empanelled hospitals
@@ -461,19 +478,19 @@ export default function Home() {
               <ul className="space-y-2">
                 <li className="flex gap-2 items-center">
                   <span className="text-saffron font-bold">✓</span>
-                  <span className="text-gray-700">
+                  <span className="text-gray-300">
                     No age limit for coverage
                   </span>
                 </li>
                 <li className="flex gap-2 items-center">
                   <span className="text-govt-green font-bold">✓</span>
-                  <span className="text-gray-700">
+                  <span className="text-gray-300">
                     Free treatment for 1,949+ procedures
                   </span>
                 </li>
                 <li className="flex gap-2 items-center">
                   <span className="text-saffron font-bold">✓</span>
-                  <span className="text-gray-700">
+                  <span className="text-gray-300">
                     Dedicated helpline: 14555
                   </span>
                 </li>
@@ -503,20 +520,21 @@ export default function Home() {
       <AskADoubt />
       <EmergencyContacts />
 
-      {/* Why This Scheme Matters — section-saffron is a light background */}
+      {/* Why This Scheme Matters */}
       <section
-        className="section-saffron py-16 md:py-20"
+        style={DARK_SECTION}
+        className="py-16 md:py-20"
         data-ocid="conclusion.section"
       >
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <span className="mb-3 inline-block rounded-full border border-govt-green/40 bg-govt-green/10 px-4 py-1.5 text-sm font-semibold text-govt-green">
+            <span className="mb-3 inline-block rounded-full border border-govt-green/50 bg-govt-green/20 px-4 py-1.5 text-sm font-semibold text-govt-green">
               Policy Significance
             </span>
-            <h2 className="section-heading mb-6 text-3xl font-bold text-navy md:text-4xl">
+            <h2 className="section-heading mb-6 text-3xl font-bold text-white md:text-4xl">
               Why Ayushman Bharat Matters for India
             </h2>
-            <p className="mb-10 text-lg text-gray-700 leading-relaxed">
+            <p className="mb-10 text-lg text-gray-300 leading-relaxed">
               Ayushman Bharat PM-JAY is more than a health scheme — it is a
               social safety net that protects India's most vulnerable families
               from financial devastation caused by medical emergencies.
@@ -546,23 +564,24 @@ export default function Home() {
               ].map((item, i) => (
                 <div
                   key={item.title}
-                  className="flex gap-4 rounded-xl border border-border bg-white p-5 shadow-sm"
+                  style={DARK_CARD}
+                  className="flex gap-4 rounded-xl p-5"
                   data-ocid={`conclusion.item.${i + 1}`}
                 >
                   <div className="text-3xl flex-shrink-0">{item.emoji}</div>
                   <div>
-                    <h3 className="mb-2 font-bold text-navy text-lg">
+                    <h3 className="mb-2 font-bold text-white text-lg">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-gray-300 text-sm leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-8 rounded-xl border border-saffron/30 bg-white p-6 shadow-sm">
-              <p className="text-gray-700 italic text-base leading-relaxed">
+            <div style={DARK_CARD} className="mt-8 rounded-xl p-6">
+              <p className="text-gray-300 italic text-base leading-relaxed">
                 &ldquo;Ayushman Bharat represents India&rsquo;s commitment to
                 Universal Health Coverage — ensuring that no citizen has to
                 choose between healthcare and food on the table. Managed by the
@@ -577,7 +596,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Subscribe for Updates — bg-navy is dark, white text is correct */}
+      {/* Subscribe for Updates */}
       <section className="bg-navy py-14">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
@@ -624,14 +643,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Explore Resources — section-mixed is a light background */}
-      <section className="section-mixed py-16 md:py-20">
+      {/* Explore Resources */}
+      <section style={DARK_SECTION} className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="section-heading mb-4 text-3xl font-bold text-navy md:text-4xl">
+            <h2 className="section-heading mb-4 text-3xl font-bold text-white md:text-4xl">
               Explore Our Resources
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
               Everything you need to know about PM-JAY in one place
             </p>
           </div>
@@ -643,17 +662,20 @@ export default function Home() {
                 className="group"
                 data-ocid={`home.link.${index + 1}`}
               >
-                <div className="h-full rounded-xl border border-border bg-white p-6 shadow-sm transition-all hover:border-saffron/40 hover:shadow-md">
-                  <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-saffron/10 transition-colors group-hover:bg-saffron/20">
+                <div
+                  style={DARK_CARD}
+                  className="h-full rounded-xl p-6 transition-all hover:border-saffron/60 hover:shadow-md"
+                >
+                  <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-saffron/20 transition-colors group-hover:bg-saffron/30">
                     <item.icon className="h-6 w-6 text-saffron" />
                   </div>
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold text-navy">
+                    <h3 className="text-xl font-bold text-white">
                       {item.title}
                     </h3>
                     <ChevronRight className="h-5 w-5 text-gray-400 transition-transform group-hover:translate-x-1" />
                   </div>
-                  <p className="text-gray-600">{item.description}</p>
+                  <p className="text-gray-300">{item.description}</p>
                 </div>
               </Link>
             ))}
@@ -683,7 +705,7 @@ export default function Home() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-navy/30 text-navy bg-transparent hover:bg-navy/5"
+                className="border-2 border-white/30 text-white bg-transparent hover:bg-white/10"
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download Your Guide

@@ -135,30 +135,30 @@ export default function BenefitsSection() {
         </div>
 
         <div className="mb-8 text-center">
-          <h2 className="section-heading mb-4 text-3xl font-bold text-white md:text-4xl">
+          <h2 className="section-heading mb-4 text-3xl font-bold text-foreground md:text-4xl">
             {t(lang, "benefits.title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-400 mt-4">
+          <p className="mx-auto max-w-2xl text-lg text-foreground/70 mt-4">
             {t(lang, "benefits.subtitle")}
           </p>
         </div>
 
         {/* Search Bar */}
         <div className="mx-auto mb-8 max-w-xl">
-          <div className="flex items-center gap-3 rounded-xl border-2 border-white/10 bg-card px-4 shadow-sm focus-within:border-saffron/50 transition-colors">
+          <div className="flex items-center gap-3 rounded-xl border-2 border-border bg-card px-4 shadow-sm focus-within:border-saffron/50 transition-colors">
             <Search className="h-5 w-5 flex-shrink-0 text-foreground/40" />
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search treatments, benefits, diseases..."
-              className="border-0 bg-transparent shadow-none focus-visible:ring-0 text-white placeholder:text-foreground/40"
+              className="border-0 bg-transparent shadow-none focus-visible:ring-0 text-foreground placeholder:text-foreground/40"
               data-ocid="benefits.search_input"
             />
             {search && (
               <button
                 type="button"
                 onClick={() => setSearch("")}
-                className="text-foreground/40 hover:text-white transition-colors"
+                className="text-foreground/40 hover:text-foreground transition-colors"
                 aria-label="Clear search"
               >
                 <X className="h-4 w-4" />
@@ -185,12 +185,14 @@ export default function BenefitsSection() {
                   >
                     <benefit.icon className={`h-6 w-6 ${benefit.iconColor}`} />
                   </div>
-                  <CardTitle className="text-xl text-white">
+                  <CardTitle className="text-xl text-foreground">
                     {t(lang, benefit.titleKey)}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-400">{t(lang, benefit.descKey)}</p>
+                  <p className="text-foreground/65">
+                    {t(lang, benefit.descKey)}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -203,22 +205,22 @@ export default function BenefitsSection() {
             <span className="mb-3 inline-block rounded-full border border-saffron/40 bg-saffron/10 px-4 py-1.5 text-sm font-semibold text-saffron">
               Coverage Guide
             </span>
-            <h3 className="text-2xl font-bold text-white md:text-3xl">
-              What's Covered vs. Not Covered
+            <h3 className="text-2xl font-bold text-foreground md:text-3xl">
+              What&apos;s Covered vs. Not Covered
             </h3>
           </div>
-          <div className="rounded-xl border border-white/10 bg-card overflow-hidden shadow-lg">
+          <div className="rounded-xl border border-border bg-card overflow-hidden shadow-lg">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-white/10 bg-card/5">
-                    <th className="px-5 py-4 text-left font-bold text-white">
+                  <tr className="border-b border-border bg-muted/30">
+                    <th className="px-5 py-4 text-left font-bold text-foreground">
                       Service / Treatment
                     </th>
                     <th className="px-5 py-4 text-center font-bold text-govt-green">
                       ✅ Covered by PM-JAY
                     </th>
-                    <th className="px-5 py-4 text-center font-bold text-red-400">
+                    <th className="px-5 py-4 text-center font-bold text-red-500">
                       ❌ Not Covered
                     </th>
                   </tr>
@@ -227,12 +229,12 @@ export default function BenefitsSection() {
                   {coverageRows.map((row, i) => (
                     <tr
                       key={row.service}
-                      className={`border-b border-white/5 transition-colors hover:bg-white/3 ${
-                        i % 2 === 0 ? "" : "bg-white/[0.02]"
+                      className={`border-b border-border/50 transition-colors hover:bg-muted/20 ${
+                        i % 2 === 0 ? "" : "bg-muted/10"
                       }`}
                       data-ocid={`benefits.row.${i + 1}`}
                     >
-                      <td className="px-5 py-3.5 font-medium text-white/85">
+                      <td className="px-5 py-3.5 font-medium text-foreground/80">
                         {row.service}
                       </td>
                       <td className="px-5 py-3.5 text-center">
@@ -241,16 +243,16 @@ export default function BenefitsSection() {
                             ✅ {row.covered}
                           </span>
                         ) : (
-                          <span className="text-foreground/25">—</span>
+                          <span className="text-foreground/30">—</span>
                         )}
                       </td>
                       <td className="px-5 py-3.5 text-center">
                         {row.notCovered ? (
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-red-500/15 px-3 py-1 text-xs font-semibold text-red-400">
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-red-500/15 px-3 py-1 text-xs font-semibold text-red-500">
                             ❌ {row.notCovered}
                           </span>
                         ) : (
-                          <span className="text-foreground/25">—</span>
+                          <span className="text-foreground/30">—</span>
                         )}
                       </td>
                     </tr>
@@ -259,7 +261,7 @@ export default function BenefitsSection() {
               </table>
             </div>
           </div>
-          <p className="mt-4 text-center text-xs text-foreground/45">
+          <p className="mt-4 text-center text-xs text-foreground/55">
             Source: National Health Authority (NHA) • pmjay.gov.in
           </p>
         </div>

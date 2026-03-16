@@ -18,7 +18,7 @@ export default function StatsBar() {
       className="py-8"
       style={{
         background:
-          "linear-gradient(180deg, oklch(0.09 0.028 15), oklch(0.11 0.035 15))",
+          "linear-gradient(180deg, oklch(0.22 0.08 240), oklch(0.26 0.09 240))",
       }}
       data-ocid="stats.section"
     >
@@ -27,7 +27,11 @@ export default function StatsBar() {
           {stats.map((stat, i) => (
             <div
               key={stat.labelKey}
-              className="stat-card card-hover rounded-xl p-5 text-center"
+              className="card-hover rounded-xl p-5 text-center"
+              style={{
+                background: "oklch(0.30 0.08 240)",
+                border: "1px solid oklch(0.35 0.08 240)",
+              }}
               data-ocid={`stats.item.${i + 1}`}
             >
               <div
@@ -36,7 +40,7 @@ export default function StatsBar() {
               >
                 {stat.value}
               </div>
-              <div className="mt-1 text-sm font-medium text-gray-400">
+              <div className="mt-1 text-sm font-medium text-gray-300">
                 {t(lang, stat.labelKey)}
               </div>
             </div>

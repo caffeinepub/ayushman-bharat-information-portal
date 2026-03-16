@@ -52,7 +52,7 @@ export default function DocumentChecklist() {
           <span className="mb-3 inline-block rounded-full border border-saffron/40 bg-saffron/10 px-4 py-1.5 text-sm font-semibold text-saffron">
             Document Guide
           </span>
-          <h2 className="mb-1 text-3xl font-bold text-white md:text-4xl">
+          <h2 className="mb-1 text-3xl font-bold text-foreground md:text-4xl">
             Documents Required
           </h2>
           <div className="mx-auto mt-2 mb-4 h-1 w-16 rounded-full bg-saffron" />
@@ -66,11 +66,11 @@ export default function DocumentChecklist() {
           {documents.map((doc, i) => (
             <div
               key={doc.name}
-              className="rounded-xl border border-white/10 bg-card p-5 text-center shadow-sm transition-all hover:border-saffron/30 hover:shadow-md"
+              className="rounded-xl border border-border bg-card p-5 text-center shadow-sm transition-all hover:border-saffron/30 hover:shadow-md"
               data-ocid={`documents.item.${i + 1}`}
             >
               <div className="mb-3 text-4xl">{doc.emoji}</div>
-              <h3 className="mb-1 text-sm font-bold text-white leading-snug">
+              <h3 className="mb-1 text-sm font-bold text-foreground leading-snug">
                 {doc.name}
               </h3>
               <p className="text-xs text-foreground/55 leading-relaxed">

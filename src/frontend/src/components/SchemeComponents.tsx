@@ -12,6 +12,9 @@ const schemes = [
     subtitle: "Financial Protection & Cashless Hospitalization",
     subtitleColor: "text-saffron",
     accentColor: "oklch(0.80 0.18 72)",
+    cardBg:
+      "linear-gradient(135deg, oklch(0.95 0.02 55), oklch(0.97 0.015 50))",
+    cardBorder: "1px solid oklch(0.88 0.02 55)",
     points: [
       "₹5 lakh health cover per family per year",
       "Covers 1,949+ medical procedures & surgeries",
@@ -30,6 +33,9 @@ const schemes = [
     subtitle: "Primary Healthcare Near Your Home",
     subtitleColor: "text-govt-green",
     accentColor: "oklch(0.60 0.16 165)",
+    cardBg:
+      "linear-gradient(135deg, oklch(0.95 0.02 145), oklch(0.97 0.015 145))",
+    cardBorder: "1px solid oklch(0.88 0.02 145)",
     points: [
       "1.5 lakh Health & Wellness Centres across India",
       "Free primary and preventive healthcare services",
@@ -45,10 +51,10 @@ export default function SchemeComponents() {
     <section className="section-blue py-16 md:py-20" data-ocid="scheme.section">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="section-heading mb-4 text-3xl font-bold text-white md:text-4xl">
+          <h2 className="section-heading mb-4 text-3xl font-bold text-foreground md:text-4xl">
             Two Pillars of Ayushman Bharat
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-400 mt-4">
+          <p className="mx-auto max-w-2xl text-lg text-foreground/65 mt-4">
             The Ayushman Bharat scheme has two distinct but complementary
             components working together for universal health coverage.
           </p>
@@ -60,9 +66,8 @@ export default function SchemeComponents() {
               key={scheme.tag}
               className="card-hover"
               style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.14 0.04 15), oklch(0.11 0.03 18))",
-                border: "1px solid oklch(0.22 0.055 15)",
+                background: scheme.cardBg,
+                border: scheme.cardBorder,
                 borderTop: `2px solid ${scheme.accentColor}`,
               }}
               data-ocid={`scheme.card.${i + 1}`}
@@ -81,7 +86,7 @@ export default function SchemeComponents() {
                     {scheme.tag}
                   </span>
                 </div>
-                <CardTitle className="text-xl text-white">
+                <CardTitle className="text-xl text-foreground">
                   {scheme.title}
                 </CardTitle>
                 <p className={`text-sm font-semibold ${scheme.subtitleColor}`}>
@@ -93,7 +98,7 @@ export default function SchemeComponents() {
                   {scheme.points.map((point) => (
                     <li
                       key={point}
-                      className="flex items-start gap-2 text-gray-300"
+                      className="flex items-start gap-2 text-foreground/75"
                     >
                       <span
                         className={`mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full ${scheme.iconBg} text-xs font-bold ${scheme.iconColor}`}

@@ -47,10 +47,10 @@ export default function HealthTips() {
     <section className="section-green py-16 md:py-20" data-ocid="tips.section">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="section-heading mb-3 text-3xl font-bold text-white md:text-4xl">
+          <h2 className="section-heading mb-3 text-3xl font-bold text-foreground md:text-4xl">
             {t(lang, "tips.title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-400 mt-4">
+          <p className="mx-auto max-w-2xl text-lg text-foreground/65 mt-4">
             {t(lang, "tips.subtitle")}
           </p>
         </div>
@@ -60,9 +60,8 @@ export default function HealthTips() {
               key={tip.titleKey}
               className="card-hover rounded-2xl p-5"
               style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.14 0.04 15), oklch(0.11 0.03 18))",
-                border: "1px solid oklch(0.22 0.055 15)",
+                background: "oklch(1 0 0)",
+                border: "1px solid oklch(0.88 0.01 220)",
                 borderLeft: `3px solid ${tip.accent}`,
               }}
               data-ocid={`tips.item.${i + 1}`}
@@ -75,10 +74,10 @@ export default function HealthTips() {
               >
                 <span className="text-2xl">{tip.emoji}</span>
               </div>
-              <h3 className="mb-2 font-bold text-white">
+              <h3 className="mb-2 font-bold text-foreground">
                 {t(lang, tip.titleKey)}
               </h3>
-              <p className="text-sm leading-relaxed text-gray-400">
+              <p className="text-sm leading-relaxed text-foreground/65">
                 {t(lang, tip.descKey)}
               </p>
             </div>

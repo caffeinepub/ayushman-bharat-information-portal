@@ -120,10 +120,10 @@ export default function StateCoverage() {
     <section className="section-blue py-16 md:py-20" data-ocid="state.section">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="section-heading mb-3 text-3xl font-bold text-white md:text-4xl">
+          <h2 className="section-heading mb-3 text-3xl font-bold text-foreground md:text-4xl">
             {t(lang, "state.title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-400 mt-4">
+          <p className="mx-auto max-w-2xl text-lg text-foreground/65 mt-4">
             {t(lang, "state.subtitle")}
           </p>
         </div>
@@ -133,15 +133,14 @@ export default function StateCoverage() {
               key={state.name}
               className="card-hover flex items-center justify-between rounded-xl p-4"
               style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.14 0.04 15), oklch(0.11 0.03 18))",
-                border: "1px solid oklch(0.22 0.055 15)",
+                background: "oklch(1 0 0)",
+                border: "1px solid oklch(0.85 0.02 220)",
               }}
               data-ocid={`state.item.${i + 1}`}
             >
               <div>
-                <p className="font-bold text-white">{state.name}</p>
-                <p className="text-xs text-gray-500">
+                <p className="font-bold text-foreground">{state.name}</p>
+                <p className="text-xs text-foreground/55">
                   {state.beneficiaries} beneficiaries · {state.hospitals}{" "}
                   hospitals
                 </p>
@@ -151,16 +150,16 @@ export default function StateCoverage() {
                 style={{
                   borderColor:
                     state.status === "active"
-                      ? "oklch(0.60 0.16 165 / 0.5)"
-                      : "oklch(0.20 0.05 15)",
+                      ? "oklch(0.45 0.14 145 / 0.5)"
+                      : "oklch(0.75 0.02 220)",
                   backgroundColor:
                     state.status === "active"
-                      ? "oklch(0.60 0.16 165 / 0.1)"
-                      : "oklch(0.14 0.04 15)",
+                      ? "oklch(0.45 0.14 145 / 0.1)"
+                      : "oklch(0.93 0.01 220)",
                   color:
                     state.status === "active"
-                      ? "oklch(0.65 0.14 168)"
-                      : "oklch(0.60 0.04 20)",
+                      ? "oklch(0.35 0.12 145)"
+                      : "oklch(0.45 0.04 220)",
                 }}
               >
                 {state.status === "active" ? "Active" : "State Scheme"}

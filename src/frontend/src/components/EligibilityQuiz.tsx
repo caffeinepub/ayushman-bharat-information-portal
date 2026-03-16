@@ -93,7 +93,7 @@ export default function EligibilityQuiz() {
             <span className="mb-3 inline-block rounded-full border border-saffron/40 bg-saffron/10 px-4 py-1.5 text-sm font-semibold text-saffron">
               Quick Eligibility Check
             </span>
-            <h2 className="section-heading mb-3 text-2xl font-bold text-white md:text-3xl">
+            <h2 className="section-heading mb-3 text-2xl font-bold text-foreground md:text-3xl">
               Are You Eligible for PM-JAY?
             </h2>
             <p className="text-foreground/65 text-base">
@@ -102,7 +102,7 @@ export default function EligibilityQuiz() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-card p-6 md:p-8 shadow-lg">
+          <div className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-lg">
             {!showResult ? (
               <>
                 {/* Progress Bar */}
@@ -115,7 +115,7 @@ export default function EligibilityQuiz() {
                       {Math.round(progress)}% complete
                     </span>
                   </div>
-                  <div className="h-2.5 w-full rounded-full bg-card/10">
+                  <div className="h-2.5 w-full rounded-full bg-muted">
                     <div
                       className="h-2.5 rounded-full bg-saffron transition-all duration-500"
                       style={{ width: `${progress}%` }}
@@ -142,7 +142,7 @@ export default function EligibilityQuiz() {
                 <div className="mb-8">
                   <div className="mb-3 flex items-start gap-3">
                     <HelpCircle className="mt-0.5 h-6 w-6 flex-shrink-0 text-saffron" />
-                    <h3 className="text-xl font-bold leading-snug text-white md:text-2xl">
+                    <h3 className="text-xl font-bold leading-snug text-foreground md:text-2xl">
                       {questions[currentStep].question}
                     </h3>
                   </div>
@@ -157,7 +157,7 @@ export default function EligibilityQuiz() {
                     {answers.map((ans, i) => (
                       <div
                         key={questions[i].id}
-                        className="flex items-center gap-3 rounded-lg border border-white/8 bg-card/5 px-4 py-2 text-sm"
+                        className="flex items-center gap-3 rounded-lg border border-border bg-muted/30 px-4 py-2 text-sm"
                       >
                         <CheckCircle className="h-4 w-4 text-govt-green" />
                         <span className="flex-1 text-foreground/60">
@@ -167,7 +167,7 @@ export default function EligibilityQuiz() {
                           className={`rounded-full px-2 py-0.5 text-xs font-bold ${
                             ans === "yes"
                               ? "bg-govt-green/20 text-govt-green"
-                              : "bg-red-500/20 text-red-400"
+                              : "bg-red-500/20 text-red-500"
                           }`}
                         >
                           {ans === "yes" ? "YES" : "NO"}
@@ -204,7 +204,7 @@ export default function EligibilityQuiz() {
                 return (
                   <div className="text-center" data-ocid="quiz.success_state">
                     <div className="mb-4 text-6xl">{result.emoji}</div>
-                    <h3 className="mb-3 text-2xl font-bold text-white">
+                    <h3 className="mb-3 text-2xl font-bold text-foreground">
                       {result.heading}
                     </h3>
                     <p className="mb-6 text-base leading-relaxed text-foreground/70">
@@ -252,7 +252,7 @@ export default function EligibilityQuiz() {
                         variant="outline"
                         size="lg"
                         onClick={handleReset}
-                        className="h-12 border-white/20 bg-transparent text-white hover:bg-card/10"
+                        className="h-12 border-border bg-transparent text-foreground hover:bg-muted/30"
                         data-ocid="quiz.cancel_button"
                       >
                         <RefreshCw className="mr-2 h-4 w-4" />

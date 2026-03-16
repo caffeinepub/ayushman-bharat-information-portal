@@ -44,13 +44,26 @@ export default function NewsUpdates() {
   const { lang } = useLanguage();
 
   return (
-    <section className="section-mixed py-16 md:py-20" data-ocid="news.section">
+    <section
+      className="py-16 md:py-20"
+      style={{
+        background:
+          "linear-gradient(160deg, oklch(0.94 0.02 225), oklch(0.97 0.012 215))",
+      }}
+      data-ocid="news.section"
+    >
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="section-heading mb-3 text-3xl font-bold text-white md:text-4xl">
+          <h2
+            className="section-heading mb-3 text-3xl font-bold md:text-4xl"
+            style={{ color: "oklch(0.22 0.07 240)" }}
+          >
             {t(lang, "news.title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-400 mt-4">
+          <p
+            className="mx-auto max-w-2xl text-lg mt-4"
+            style={{ color: "oklch(0.42 0.05 230)" }}
+          >
             {t(lang, "news.subtitle")}
           </p>
         </div>
@@ -60,10 +73,10 @@ export default function NewsUpdates() {
               key={item.title}
               className="card-hover flex gap-4 rounded-xl p-5"
               style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.14 0.04 15), oklch(0.11 0.03 18))",
-                border: "1px solid oklch(0.22 0.055 15)",
-                borderLeft: `3px solid ${item.accentColor}`,
+                background: "oklch(1 0 0)",
+                border: "1px solid oklch(0.88 0.02 220)",
+                borderLeft: `4px solid ${item.accentColor}`,
+                boxShadow: "0 2px 10px oklch(0.80 0.04 225 / 0.2)",
               }}
               data-ocid={`news.item.${i + 1}`}
             >
@@ -83,9 +96,19 @@ export default function NewsUpdates() {
                   >
                     {item.type}
                   </span>
-                  <span className="text-xs text-gray-500">{item.date}</span>
+                  <span
+                    className="text-xs font-medium"
+                    style={{ color: "oklch(0.45 0.05 230)" }}
+                  >
+                    {item.date}
+                  </span>
                 </div>
-                <p className="font-semibold text-gray-200">{item.title}</p>
+                <p
+                  className="font-semibold"
+                  style={{ color: "oklch(0.22 0.07 240)" }}
+                >
+                  {item.title}
+                </p>
               </div>
               <Bell
                 className="h-5 w-5 flex-shrink-0 mt-1"

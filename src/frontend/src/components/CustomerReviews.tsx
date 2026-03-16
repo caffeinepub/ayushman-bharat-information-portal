@@ -83,15 +83,15 @@ export default function CustomerReviews() {
             style={{
               border: "1px solid oklch(0.80 0.18 72 / 0.3)",
               background: "oklch(0.80 0.18 72 / 0.1)",
-              color: "oklch(0.82 0.18 72)",
+              color: "oklch(0.55 0.16 55)",
             }}
           >
             {lang === "en" ? "Real Stories" : "वास्तविक कहानियाँ"}
           </span>
-          <h2 className="section-heading mb-4 font-display text-3xl font-bold text-white md:text-4xl">
+          <h2 className="section-heading mb-4 font-display text-3xl font-bold text-foreground md:text-4xl">
             {t(lang, "reviews.title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-400 mt-4">
+          <p className="mx-auto max-w-2xl text-lg text-foreground/65 mt-4">
             {t(lang, "reviews.subtitle")}
           </p>
         </div>
@@ -101,15 +101,14 @@ export default function CustomerReviews() {
               key={review.name}
               className="card-hover relative overflow-hidden rounded-xl p-6"
               style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.14 0.04 15), oklch(0.11 0.03 18))",
-                border: "1px solid oklch(0.22 0.055 15)",
+                background: "oklch(1 0 0)",
+                border: "1px solid oklch(0.88 0.01 220)",
                 borderTop: `2px solid ${review.accent}`,
               }}
               data-ocid={`reviews.item.${i + 1}`}
             >
               <StarRating count={review.rating} />
-              <p className="my-4 text-sm leading-relaxed text-gray-400">
+              <p className="my-4 text-sm leading-relaxed text-foreground/65">
                 &ldquo;{review.text}&rdquo;
               </p>
               <div className="flex items-center gap-3">
@@ -117,15 +116,17 @@ export default function CustomerReviews() {
                   className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold text-white"
                   style={{
                     backgroundColor: review.accent,
-                    boxShadow: `0 0 12px ${review.accent.replace(")", " / 0.4)")}
-                    `,
                   }}
                 >
                   {review.initial}
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-200">{review.name}</p>
-                  <p className="text-xs text-gray-500">{review.location}</p>
+                  <p className="font-semibold text-foreground/85">
+                    {review.name}
+                  </p>
+                  <p className="text-xs text-foreground/55">
+                    {review.location}
+                  </p>
                 </div>
               </div>
             </div>
