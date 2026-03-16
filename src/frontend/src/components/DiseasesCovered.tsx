@@ -629,7 +629,7 @@ export default function DiseasesCovered() {
                           href={ref.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-1"
+                          className="text-sm text-secondary hover:text-secondary/80 hover:underline flex items-center gap-1"
                         >
                           <span>↗</span> {ref.label}
                         </a>

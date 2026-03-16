@@ -1,132 +1,115 @@
+import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/context/LanguageContext";
 import { t } from "@/translations";
 
 const states = [
   {
     name: "Uttar Pradesh",
-    nameHi: "उत्तर प्रदेश",
-    status: "Active",
-    beneficiaries: "15.5 Cr",
-    hospitals: 3200,
+    beneficiaries: "18.9 Cr",
+    hospitals: "3,200+",
+    status: "active",
   },
   {
     name: "Maharashtra",
-    nameHi: "महाराष्ट्र",
-    status: "Active + State Scheme",
-    beneficiaries: "11.2 Cr",
-    hospitals: 2800,
-  },
-  {
-    name: "Bihar",
-    nameHi: "बिहार",
-    status: "Active",
-    beneficiaries: "10.1 Cr",
-    hospitals: 1450,
+    beneficiaries: "11.4 Cr",
+    hospitals: "2,800+",
+    status: "active",
   },
   {
     name: "West Bengal",
-    nameHi: "पश्चिम बंगाल",
-    status: "Active",
-    beneficiaries: "9.8 Cr",
-    hospitals: 1600,
+    beneficiaries: "9.1 Cr",
+    hospitals: "1,200+",
+    status: "state-scheme",
   },
   {
-    name: "Rajasthan",
-    nameHi: "राजस्थान",
-    status: "Active + State Scheme",
-    beneficiaries: "7.2 Cr",
-    hospitals: 1200,
+    name: "Bihar",
+    beneficiaries: "8.5 Cr",
+    hospitals: "900+",
+    status: "active",
   },
   {
     name: "Madhya Pradesh",
-    nameHi: "मध्य प्रदेश",
-    status: "Active",
-    beneficiaries: "7.0 Cr",
-    hospitals: 1180,
+    beneficiaries: "7.2 Cr",
+    hospitals: "1,400+",
+    status: "active",
   },
   {
-    name: "Andhra Pradesh",
-    nameHi: "आंध्र प्रदेश",
-    status: "Active + State Scheme",
-    beneficiaries: "5.8 Cr",
-    hospitals: 890,
+    name: "Rajasthan",
+    beneficiaries: "6.8 Cr",
+    hospitals: "1,600+",
+    status: "active",
   },
   {
     name: "Tamil Nadu",
-    nameHi: "तमिलनाडु",
-    status: "Active + State Scheme",
-    beneficiaries: "5.5 Cr",
-    hospitals: 1050,
-  },
-  {
-    name: "Odisha",
-    nameHi: "ओडिशा",
-    status: "Active + State Scheme",
-    beneficiaries: "4.9 Cr",
-    hospitals: 680,
+    beneficiaries: "6.3 Cr",
+    hospitals: "2,100+",
+    status: "active",
   },
   {
     name: "Karnataka",
-    nameHi: "कर्नाटक",
-    status: "Active + State Scheme",
-    beneficiaries: "4.7 Cr",
-    hospitals: 920,
-  },
-  {
-    name: "Jharkhand",
-    nameHi: "झारखंड",
-    status: "Active",
-    beneficiaries: "3.8 Cr",
-    hospitals: 540,
+    beneficiaries: "5.9 Cr",
+    hospitals: "1,900+",
+    status: "active",
   },
   {
     name: "Gujarat",
-    nameHi: "गुजरात",
-    status: "Active",
-    beneficiaries: "3.5 Cr",
-    hospitals: 780,
+    beneficiaries: "5.5 Cr",
+    hospitals: "1,700+",
+    status: "active",
+  },
+  {
+    name: "Andhra Pradesh",
+    beneficiaries: "5.1 Cr",
+    hospitals: "1,300+",
+    status: "active",
+  },
+  {
+    name: "Telangana",
+    beneficiaries: "4.8 Cr",
+    hospitals: "1,500+",
+    status: "active",
+  },
+  {
+    name: "Odisha",
+    beneficiaries: "4.2 Cr",
+    hospitals: "800+",
+    status: "active",
+  },
+  {
+    name: "Kerala",
+    beneficiaries: "3.8 Cr",
+    hospitals: "1,200+",
+    status: "active",
   },
   {
     name: "Punjab",
-    nameHi: "पंजाब",
-    status: "Active",
     beneficiaries: "2.9 Cr",
-    hospitals: 620,
+    hospitals: "700+",
+    status: "active",
   },
   {
     name: "Haryana",
-    nameHi: "हरियाणा",
-    status: "Active",
-    beneficiaries: "2.4 Cr",
-    hospitals: 450,
+    beneficiaries: "2.7 Cr",
+    hospitals: "650+",
+    status: "active",
+  },
+  {
+    name: "Jharkhand",
+    beneficiaries: "2.5 Cr",
+    hospitals: "550+",
+    status: "active",
   },
   {
     name: "Chhattisgarh",
-    nameHi: "छत्तीसगढ़",
-    status: "Active + State Scheme",
-    beneficiaries: "2.2 Cr",
-    hospitals: 390,
+    beneficiaries: "2.3 Cr",
+    hospitals: "480+",
+    status: "active",
   },
   {
     name: "Assam",
-    nameHi: "असम",
-    status: "Active",
-    beneficiaries: "2.0 Cr",
-    hospitals: 320,
-  },
-  {
-    name: "Uttarakhand",
-    nameHi: "उत्तराखंड",
-    status: "Active",
-    beneficiaries: "1.1 Cr",
-    hospitals: 280,
-  },
-  {
-    name: "Himachal Pradesh",
-    nameHi: "हिमाचल प्रदेश",
-    status: "Active + State Scheme",
-    beneficiaries: "0.9 Cr",
-    hospitals: 210,
+    beneficiaries: "2.1 Cr",
+    hospitals: "420+",
+    status: "active",
   },
 ];
 
@@ -134,16 +117,13 @@ export default function StateCoverage() {
   const { lang } = useLanguage();
 
   return (
-    <section
-      className="bg-gradient-to-br from-navy/5 via-background to-navy/10 py-16 md:py-20"
-      data-ocid="state.section"
-    >
+    <section className="section-blue py-16 md:py-20" data-ocid="state.section">
       <div className="container mx-auto px-4">
-        <div className="mb-10 text-center">
-          <h2 className="mb-3 text-3xl font-bold text-foreground md:text-4xl">
+        <div className="mb-12 text-center">
+          <h2 className="section-heading mb-3 text-3xl font-bold text-white md:text-4xl">
             {t(lang, "state.title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-lg text-gray-400 mt-4">
             {t(lang, "state.subtitle")}
           </p>
         </div>
@@ -151,32 +131,40 @@ export default function StateCoverage() {
           {states.map((state, i) => (
             <div
               key={state.name}
-              className="flex items-center justify-between rounded-xl border border-border/50 bg-card p-4 shadow-sm hover:shadow-md transition-all"
+              className="card-hover flex items-center justify-between rounded-xl p-4"
+              style={{
+                background:
+                  "linear-gradient(135deg, oklch(0.14 0.04 15), oklch(0.11 0.03 18))",
+                border: "1px solid oklch(0.22 0.055 15)",
+              }}
               data-ocid={`state.item.${i + 1}`}
             >
               <div>
-                <p className="font-bold text-foreground">
-                  {lang === "hi" ? state.nameHi : state.name}
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  {state.beneficiaries} {t(lang, "state.beneficiaries")} •{" "}
-                  {state.hospitals.toLocaleString()}{" "}
-                  {t(lang, "state.hospitals")}
+                <p className="font-bold text-white">{state.name}</p>
+                <p className="text-xs text-gray-500">
+                  {state.beneficiaries} beneficiaries · {state.hospitals}{" "}
+                  hospitals
                 </p>
               </div>
-              <span
-                className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
-                  state.status.includes("State")
-                    ? "bg-saffron/15 text-saffron"
-                    : "bg-govt-green/15 text-govt-green"
-                }`}
+              <Badge
+                className="border text-xs"
+                style={{
+                  borderColor:
+                    state.status === "active"
+                      ? "oklch(0.60 0.16 165 / 0.5)"
+                      : "oklch(0.20 0.05 15)",
+                  backgroundColor:
+                    state.status === "active"
+                      ? "oklch(0.60 0.16 165 / 0.1)"
+                      : "oklch(0.14 0.04 15)",
+                  color:
+                    state.status === "active"
+                      ? "oklch(0.65 0.14 168)"
+                      : "oklch(0.60 0.04 20)",
+                }}
               >
-                {state.status.includes("State")
-                  ? lang === "hi"
-                    ? "राज्य + केंद्र"
-                    : "State + Central"
-                  : t(lang, "state.active")}
-              </span>
+                {state.status === "active" ? "Active" : "State Scheme"}
+              </Badge>
             </div>
           ))}
         </div>

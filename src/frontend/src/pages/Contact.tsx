@@ -249,7 +249,7 @@ export default function Contact() {
                       center.color === "saffron"
                         ? "border-saffron/30 bg-gradient-to-br from-saffron/10 to-saffron/5 hover:border-saffron/60"
                         : center.color === "navy"
-                          ? "border-navy/30 bg-gradient-to-br from-navy/8 to-navy/3 hover:border-navy/60"
+                          ? "border-white/30 bg-gradient-to-br from-navy/8 to-navy/3 hover:border-navy/60"
                           : "border-govt-green/30 bg-gradient-to-br from-govt-green/10 to-govt-green/5 hover:border-govt-green/60"
                     }`}
                   >
@@ -278,7 +278,7 @@ export default function Contact() {
                           center.color === "saffron"
                             ? "text-saffron"
                             : center.color === "navy"
-                              ? "text-navy"
+                              ? "text-foreground"
                               : "text-govt-green"
                         }`}
                       >
@@ -292,8 +292,8 @@ export default function Contact() {
                 </a>
               ))}
             </div>
-            <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-center">
-              <p className="text-sm font-semibold text-amber-800">
+            <div className="mt-6 rounded-xl border border-border bg-card p-4 text-center">
+              <p className="text-sm font-semibold text-foreground">
                 ⚠️ All PM-JAY services are completely FREE. Never pay anyone for
                 Ayushman Card registration or eligibility verification.
               </p>

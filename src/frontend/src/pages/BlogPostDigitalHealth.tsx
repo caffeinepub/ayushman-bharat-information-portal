@@ -96,7 +96,7 @@ export default function BlogPostDigitalHealth() {
             <Badge className="bg-govt-green/20 text-govt-green border-govt-green/30">
               Policy Guide
             </Badge>
-            <Badge className="bg-white/10 text-white/80 border-white/20">
+            <Badge className="bg-card/10 text-white/80 border-white/20">
               ABHA & PM-JAY
             </Badge>
           </div>
@@ -742,7 +742,7 @@ export default function BlogPostDigitalHealth() {
 
               {/* Strategic Content Design Section */}
               <section className="mb-8" id="content-design">
-                <div className="bg-navy/5 border border-navy/20 rounded-xl p-6 md:p-8">
+                <div className="bg-card/5 border border-white/20 rounded-xl p-6 md:p-8">
                   <h2 className="text-2xl font-bold text-foreground mb-2">
                     Strategic Content Design: Why We Use Multi-Format Media
                   </h2>

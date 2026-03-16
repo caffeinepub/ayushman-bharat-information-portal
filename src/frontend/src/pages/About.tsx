@@ -76,12 +76,12 @@ export default function About() {
         description="Learn about Ayushman Bharat PM-JAY, India's largest government healthcare scheme providing ₹5 lakh coverage. Managed by National Health Authority (NHA)."
         keywords="PM-JAY, Ayushman Bharat, National Health Authority, Modicare, government healthcare scheme"
       />
-      <div className="bg-gradient-to-br from-saffron/10 to-govt-green/10 py-12 md:py-16">
+      <div className="section-saffron py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <h1 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">
+          <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl">
             About Ayushman Bharat PM-JAY
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-gray-300">
             India's Largest Government Healthcare Scheme
           </p>
         </div>
@@ -90,16 +90,14 @@ export default function About() {
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">
           <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-foreground">
-              Our Mission
-            </h2>
-            <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
+            <h2 className="mb-6 text-3xl font-bold text-white">Our Mission</h2>
+            <p className="mb-4 text-lg leading-relaxed text-gray-300">
               Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY) is the
               world's largest health insurance scheme fully financed by the
               government. It was launched on 23rd September 2018 to achieve the
               vision of Universal Health Coverage (UHC).
             </p>
-            <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
+            <p className="mb-4 text-lg leading-relaxed text-gray-300">
               This scheme aims to bridge the information gap between the
               Government of India's healthcare policies and the citizens who
               need them most. By providing comprehensive health coverage, PM-JAY
@@ -109,10 +107,10 @@ export default function About() {
           </section>
 
           <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-foreground">
+            <h2 className="mb-6 text-3xl font-bold text-white">
               Coverage Details
             </h2>
-            <div className="rounded-lg bg-govt-green/10 p-6 md:p-8">
+            <div className="rounded-lg bg-govt-green/10 border border-govt-green/20 p-6 md:p-8">
               <ul className="space-y-3 text-lg">
                 {[
                   "Health cover of up to ₹5 lakh per family per year",
@@ -126,7 +124,7 @@ export default function About() {
                     <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-govt-green text-white text-sm">
                       ✓
                     </span>
-                    <span>{item}</span>
+                    <span className="text-gray-200">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -134,17 +132,20 @@ export default function About() {
           </section>
 
           <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-foreground">
+            <h2 className="mb-6 text-3xl font-bold text-white">
               Who is Eligible?
             </h2>
-            <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
+            <p className="mb-4 text-lg leading-relaxed text-gray-300">
               PM-JAY provides coverage to over 55 crore beneficiaries (more than
               12 crore families) belonging to poor and vulnerable populations
               based on the Socio-Economic Caste Census (SECC) database. The
               scheme is currently active in{" "}
-              <strong>33+ states and union territories</strong> across India.
+              <strong className="text-white">
+                33+ states and union territories
+              </strong>{" "}
+              across India.
             </p>
-            <ul className="list-inside list-disc space-y-2 text-lg text-muted-foreground">
+            <ul className="list-inside list-disc space-y-2 text-lg text-gray-300">
               <li>Families identified as per SECC 2011 deprivation criteria</li>
               <li>Families with no adult member between age 16 to 59</li>
               <li>Female headed households with no adult male member</li>
@@ -160,17 +161,15 @@ export default function About() {
           </section>
 
           <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-foreground">
-              Key Features
-            </h2>
+            <h2 className="mb-6 text-3xl font-bold text-white">Key Features</h2>
             <div className="grid gap-6 md:grid-cols-2">
               <Card>
                 <CardHeader>
                   <Target className="mb-2 h-8 w-8 text-saffron" />
-                  <CardTitle>Portability</CardTitle>
+                  <CardTitle className="text-white">Portability</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-gray-300">
                     Beneficiaries can avail cashless treatment at any empanelled
                     hospital across India, ensuring healthcare access anywhere
                     in the country.
@@ -180,10 +179,10 @@ export default function About() {
               <Card>
                 <CardHeader>
                   <Users className="mb-2 h-8 w-8 text-saffron" />
-                  <CardTitle>Family Coverage</CardTitle>
+                  <CardTitle className="text-white">Family Coverage</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-gray-300">
                     No cap on family size or age of members. The entire family
                     is covered under the scheme.
                   </p>
@@ -192,10 +191,10 @@ export default function About() {
               <Card>
                 <CardHeader>
                   <Building2 className="mb-2 h-8 w-8 text-saffron" />
-                  <CardTitle>Wide Network</CardTitle>
+                  <CardTitle className="text-white">Wide Network</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-gray-300">
                     Over 27,000+ empanelled hospitals across public and private
                     sectors providing quality healthcare.
                   </p>
@@ -204,10 +203,12 @@ export default function About() {
               <Card>
                 <CardHeader>
                   <TrendingUp className="mb-2 h-8 w-8 text-saffron" />
-                  <CardTitle>Paperless Process</CardTitle>
+                  <CardTitle className="text-white">
+                    Paperless Process
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
+                  <p className="text-gray-300">
                     Completely paperless and cashless process at the point of
                     service delivery with Aadhaar-based authentication.
                   </p>
@@ -217,17 +218,17 @@ export default function About() {
           </section>
 
           <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-foreground">
+            <h2 className="mb-6 text-3xl font-bold text-white">
               National Health Authority (NHA)
             </h2>
-            <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
+            <p className="mb-4 text-lg leading-relaxed text-gray-300">
               The National Health Authority (NHA) is the apex body responsible
               for implementing PM-JAY. NHA has been entrusted with the role of
               designing strategy, building technological infrastructure, and
               implementation of the scheme in coordination with state
               governments.
             </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
+            <p className="text-lg leading-relaxed text-gray-300">
               NHA ensures transparency, accountability, and efficiency in the
               implementation of the scheme through robust IT systems, regular
               monitoring, and grievance redressal mechanisms.
@@ -236,51 +237,55 @@ export default function About() {
 
           {/* NHA Leadership & Governance */}
           <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-foreground">
+            <h2 className="mb-6 text-3xl font-bold text-white">
               NHA Leadership & Governance
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
-              <Card className="border-navy/20 bg-gradient-to-br from-navy/5 to-transparent">
+              <Card className="border-border bg-card">
                 <CardHeader>
-                  <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-navy/10">
-                    <span className="text-2xl">🏛️</span>
+                  <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+                    <span className="text-2xl">🏙️</span>
                   </div>
-                  <CardTitle className="text-lg">Chairperson</CardTitle>
+                  <CardTitle className="text-lg text-white">
+                    Chairperson
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-gray-300 text-sm">
                     Cabinet Minister for Health & Family Welfare, Government of
                     India. Provides policy direction and oversight for all
                     Ayushman Bharat initiatives.
                   </p>
                 </CardContent>
               </Card>
-              <Card className="border-saffron/20 bg-gradient-to-br from-saffron/5 to-transparent">
+              <Card className="border-saffron/20 bg-card">
                 <CardHeader>
                   <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-saffron/10">
                     <span className="text-2xl">👔</span>
                   </div>
-                  <CardTitle className="text-lg">
+                  <CardTitle className="text-lg text-white">
                     CEO / Director General
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-gray-300 text-sm">
                     National Health Authority — responsible for day-to-day
                     PM-JAY operations, IT infrastructure, hospital empanelment,
                     and beneficiary management.
                   </p>
                 </CardContent>
               </Card>
-              <Card className="border-govt-green/20 bg-gradient-to-br from-govt-green/5 to-transparent">
+              <Card className="border-govt-green/20 bg-card">
                 <CardHeader>
                   <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-govt-green/10">
                     <span className="text-2xl">🤝</span>
                   </div>
-                  <CardTitle className="text-lg">Governing Board</CardTitle>
+                  <CardTitle className="text-lg text-white">
+                    Governing Board
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-gray-300 text-sm">
                     Representatives from Ministry of Health, Ministry of
                     Finance, NITI Aayog, and State Governments to ensure federal
                     coordination and accountability.
@@ -292,21 +297,21 @@ export default function About() {
 
           {/* Ayushman Bharat Two Pillars */}
           <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-foreground">
+            <h2 className="mb-6 text-3xl font-bold text-white">
               Ayushman Bharat: Two Pillars
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border-2 border-saffron/30 bg-gradient-to-br from-saffron/10 to-saffron/5 p-6">
+              <div className="rounded-2xl border-2 border-saffron/30 bg-saffron/5 p-6">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="rounded-full bg-saffron text-white text-xs font-bold px-2.5 py-1">
                     Pillar 1
                   </span>
-                  <h3 className="font-bold text-foreground">PM-JAY</h3>
+                  <h3 className="font-bold text-white">PM-JAY</h3>
                 </div>
-                <p className="text-sm font-semibold text-foreground mb-2">
+                <p className="text-sm font-semibold text-saffron mb-2">
                   Pradhan Mantri Jan Arogya Yojana
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-gray-300">
                   Health insurance scheme providing ₹5 lakh annual coverage per
                   family for secondary and tertiary care hospitalization at
                   27,000+ empanelled public and private hospitals across India.
@@ -314,17 +319,17 @@ export default function About() {
                   families.
                 </p>
               </div>
-              <div className="rounded-2xl border-2 border-govt-green/30 bg-gradient-to-br from-govt-green/10 to-govt-green/5 p-6">
+              <div className="rounded-2xl border-2 border-govt-green/30 bg-govt-green/5 p-6">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="rounded-full bg-govt-green text-white text-xs font-bold px-2.5 py-1">
                     Pillar 2
                   </span>
-                  <h3 className="font-bold text-foreground">AB-HWC</h3>
+                  <h3 className="font-bold text-white">AB-HWC</h3>
                 </div>
-                <p className="text-sm font-semibold text-foreground mb-2">
+                <p className="text-sm font-semibold text-govt-green mb-2">
                   Ayushman Bharat – Health and Wellness Centres
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-gray-300">
                   A network of 1.5 lakh Ayushman Arogya Mandirs providing
                   comprehensive primary care services including maternal health,
                   child health, mental health, TB, and non-communicable diseases
@@ -336,15 +341,15 @@ export default function About() {
 
           {/* ₹5 Lakh Cover Explained */}
           <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold text-foreground">
+            <h2 className="mb-6 text-3xl font-bold text-white">
               The ₹5 Lakh Cover — Explained
             </h2>
-            <div className="rounded-2xl border-2 border-saffron/40 bg-gradient-to-br from-saffron/10 via-saffron/5 to-transparent p-6 md:p-8">
-              <p className="mb-6 text-lg text-muted-foreground">
+            <div className="rounded-2xl border-2 border-saffron/40 bg-saffron/5 p-6 md:p-8">
+              <p className="mb-6 text-lg text-gray-300">
                 Every eligible family gets a health cover of{" "}
-                <strong className="text-foreground">₹5 lakh per year</strong>.
-                This cover is comprehensive, cashless, and resets every year on
-                1st April.
+                <strong className="text-white">₹5 lakh per year</strong>. This
+                cover is comprehensive, cashless, and resets every year on 1st
+                April.
               </p>
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
@@ -384,22 +389,18 @@ export default function About() {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="flex items-start gap-3 rounded-xl bg-white/60 p-4 shadow-sm"
+                    className="flex items-start gap-3 rounded-xl bg-card/80 border border-border p-4 shadow-sm"
                   >
                     <span className="text-2xl">{item.emoji}</span>
                     <div>
-                      <p className="font-semibold text-foreground">
-                        {item.label}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {item.detail}
-                      </p>
+                      <p className="font-semibold text-white">{item.label}</p>
+                      <p className="text-sm text-gray-300">{item.detail}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="mt-6 rounded-xl bg-saffron/20 px-5 py-4">
-                <p className="text-sm font-semibold text-foreground">
+              <div className="mt-6 rounded-xl bg-saffron/20 border border-saffron/30 px-5 py-4">
+                <p className="text-sm font-semibold text-white">
                   🔁 The ₹5 lakh cover resets every year on 1st April — so if
                   your family uses part of the cover, it is fully restored the
                   following year.
@@ -410,11 +411,10 @@ export default function About() {
 
           {/* Timeline */}
           <section className="mb-12">
-            <h2 className="mb-8 text-3xl font-bold text-foreground">
+            <h2 className="mb-8 text-3xl font-bold text-white">
               Journey & Milestones
             </h2>
             <div className="relative">
-              {/* Vertical line */}
               <div className="absolute left-5 top-0 h-full w-0.5 bg-border md:left-1/2" />
               <div className="space-y-8">
                 {timeline.map((item, index) => (
@@ -425,12 +425,10 @@ export default function About() {
                     }`}
                     data-ocid={`about.item.${index + 1}`}
                   >
-                    {/* Dot */}
                     <div className="absolute left-5 flex h-4 w-4 -translate-x-1/2 items-center justify-center md:left-1/2">
-                      <div className="h-4 w-4 rounded-full bg-saffron border-2 border-white shadow" />
+                      <div className="h-4 w-4 rounded-full bg-saffron border-2 border-card shadow" />
                     </div>
 
-                    {/* Card */}
                     <div
                       className={`ml-12 flex-1 md:ml-0 ${
                         index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8"
@@ -440,16 +438,13 @@ export default function About() {
                         <span className="inline-block mb-1 rounded-full bg-saffron/10 px-3 py-0.5 text-xs font-bold text-saffron">
                           {item.year}
                         </span>
-                        <h3 className="font-bold text-foreground">
-                          {item.event}
-                        </h3>
-                        <p className="mt-1 text-sm text-muted-foreground">
+                        <h3 className="font-bold text-white">{item.event}</h3>
+                        <p className="mt-1 text-sm text-gray-300">
                           {item.detail}
                         </p>
                       </div>
                     </div>
 
-                    {/* Spacer for alternating layout */}
                     <div className="hidden flex-1 md:block" />
                   </div>
                 ))}
@@ -459,10 +454,10 @@ export default function About() {
 
           {/* Team Section */}
           <section>
-            <h2 className="mb-4 text-3xl font-bold text-foreground">
+            <h2 className="mb-4 text-3xl font-bold text-white">
               Meet Our Team
             </h2>
-            <p className="mb-8 text-lg text-muted-foreground">
+            <p className="mb-8 text-lg text-gray-300">
               A dedicated team works behind this portal to bring accurate,
               accessible, and up-to-date information about PM-JAY to every
               Indian citizen.
@@ -473,10 +468,10 @@ export default function About() {
                   key={member.name}
                   className={`border-2 ${
                     member.color === "saffron"
-                      ? "border-saffron/30 bg-gradient-to-br from-saffron/8 to-transparent"
+                      ? "border-saffron/30 bg-saffron/5"
                       : member.color === "navy"
-                        ? "border-navy/30 bg-gradient-to-br from-navy/8 to-transparent"
-                        : "border-govt-green/30 bg-gradient-to-br from-govt-green/8 to-transparent"
+                        ? "border-border bg-card"
+                        : "border-govt-green/30 bg-govt-green/5"
                   }`}
                   data-ocid={`about.team.card.${i + 1}`}
                 >
@@ -486,19 +481,21 @@ export default function About() {
                         member.color === "saffron"
                           ? "bg-saffron/15"
                           : member.color === "navy"
-                            ? "bg-navy/15"
+                            ? "bg-muted"
                             : "bg-govt-green/15"
                       }`}
                     >
                       {member.emoji}
                     </div>
-                    <CardTitle className="text-xl">{member.name}</CardTitle>
+                    <CardTitle className="text-xl text-white">
+                      {member.name}
+                    </CardTitle>
                     <p
                       className={`text-sm font-semibold ${
                         member.color === "saffron"
                           ? "text-saffron"
                           : member.color === "navy"
-                            ? "text-navy"
+                            ? "text-gray-300"
                             : "text-govt-green"
                       }`}
                     >
@@ -506,7 +503,7 @@ export default function About() {
                     </p>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-center text-sm text-muted-foreground">
+                    <p className="text-center text-sm text-gray-300">
                       {member.description}
                     </p>
                   </CardContent>

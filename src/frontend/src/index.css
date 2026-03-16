@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Outfit";
-  src: url("/assets/fonts/Outfit-VariableFont_wght.woff2") format("woff2");
-  font-weight: 100 900;
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay-VariableFont_wght.woff2")
+    format("woff2");
+  font-weight: 400 800;
   font-display: swap;
 }
 
@@ -17,63 +18,47 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --radius: 0.625rem;
-    --saffron: 0.7 0.2 45;
-    --govt-green: 0.45 0.2 145;
-    --navy: 0.25 0.12 260;
-    --background: 0.94 0.04 55;
-    --foreground: 0.14 0.05 260;
-    --card: 0.97 0.03 55;
-    --card-foreground: 0.16 0.04 260;
-    --popover: 0.97 0.03 55;
-    --popover-foreground: 0.16 0.04 260;
-    --primary: 0.68 0.22 45;
-    --primary-foreground: 1 0 0;
-    --secondary: 0.42 0.22 145;
-    --secondary-foreground: 1 0 0;
-    --muted: 0.9 0.025 60;
-    --muted-foreground: 0.45 0.05 260;
-    --accent: 0.88 0.03 60;
-    --accent-foreground: 0.16 0.04 260;
-    --destructive: 0.577 0.245 27.325;
-    --destructive-foreground: 1 0 0;
-    --border: 0.82 0.04 55;
-    --input: 0.88 0.02 60;
-    --ring: 0.68 0.22 45;
-    --chart-1: 0.68 0.22 45;
-    --chart-2: 0.42 0.22 145;
-    --chart-3: 0.6 0.15 90;
-    --chart-4: 0.75 0.12 180;
-    --chart-5: 0.55 0.18 30;
-  }
 
-  .dark {
-    --background: 0.14 0.03 260;
-    --foreground: 0.97 0.005 80;
-    --card: 0.2 0.04 260;
-    --card-foreground: 0.97 0.005 80;
-    --popover: 0.2 0.04 260;
-    --popover-foreground: 0.97 0.005 80;
-    --primary: 0.78 0.18 45;
-    --primary-foreground: 0.14 0.03 260;
-    --secondary: 0.55 0.2 145;
+    /* Brand tokens — Light Government Portal */
+    --saffron: 0.72 0.18 50;
+    --govt-green: 0.45 0.14 145;
+    --navy: 0.22 0.07 240;
+
+    /* Semantic tokens — light ice-blue government theme */
+    --background: 0.97 0.008 220;
+    --foreground: 0.22 0.06 240;
+    --card: 1 0 0;
+    --card-foreground: 0.22 0.06 240;
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0.06 240;
+    --primary: 0.72 0.18 50;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.45 0.14 145;
     --secondary-foreground: 1 0 0;
-    --muted: 0.26 0.04 260;
-    --muted-foreground: 0.7 0.02 260;
-    --accent: 0.3 0.04 260;
-    --accent-foreground: 0.97 0.005 80;
-    --destructive: 0.6 0.245 27.325;
-    --destructive-foreground: 1 0 0;
-    --border: 0.3 0.04 260;
-    --input: 0.3 0.04 260;
-    --ring: 0.78 0.18 45;
-    --chart-1: 0.78 0.18 45;
-    --chart-2: 0.55 0.2 145;
-    --chart-3: 0.65 0.15 90;
-    --chart-4: 0.8 0.12 180;
-    --chart-5: 0.6 0.18 30;
+    --muted: 0.92 0.01 220;
+    --muted-foreground: 0.45 0.05 230;
+    --accent: 0.95 0.03 50;
+    --accent-foreground: 0.22 0.06 240;
+    --destructive: 0.55 0.22 27;
+    --destructive-foreground: 0.98 0.01 60;
+    --border: 0.88 0.01 220;
+    --input: 0.92 0.01 220;
+    --ring: 0.72 0.18 50;
+    --chart-1: 0.72 0.18 50;
+    --chart-2: 0.45 0.14 145;
+    --chart-3: 0.55 0.12 200;
+    --chart-4: 0.65 0.15 55;
+    --chart-5: 0.6 0.16 30;
   }
 
   * {
@@ -81,44 +66,15 @@
   }
 
   html {
-    background-color: oklch(0.93 0.04 55);
+    background-color: oklch(0.97 0.008 220);
   }
 
   body {
-    @apply text-foreground;
+    @apply bg-background text-foreground;
     font-family: "Outfit", sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.65;
     min-height: 100vh;
-    position: relative;
-    background-color: transparent;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    background-image: url("/assets/generated/bg-blur-pmjay.dim_1920x1080.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(4px) brightness(1.05) saturate(1.2);
-    transform: scale(1.05);
-  }
-
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(
-      160deg,
-      oklch(0.97 0.07 50 / 0.5) 0%,
-      oklch(0.96 0.04 70 / 0.45) 30%,
-      oklch(0.96 0.03 200 / 0.42) 65%,
-      oklch(0.94 0.06 145 / 0.48) 100%
-    );
   }
 
   h1,
@@ -128,6 +84,8 @@
   h5,
   h6 {
     font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 
   button,
@@ -144,6 +102,7 @@
 }
 
 @layer utilities {
+  /* Brand color utilities */
   .bg-saffron {
     background-color: oklch(var(--saffron));
   }
@@ -171,60 +130,178 @@
   .border-navy {
     border-color: oklch(var(--navy));
   }
+
+  /* Legacy alias — gold maps to saffron */
+  .bg-gold {
+    background-color: oklch(var(--saffron));
+  }
+  .text-gold {
+    color: oklch(var(--saffron));
+  }
+  .border-gold {
+    border-color: oklch(var(--saffron));
+  }
+  .bg-emerald-brand {
+    background-color: oklch(var(--govt-green));
+  }
+  .text-emerald-brand {
+    color: oklch(var(--govt-green));
+  }
+  .border-emerald-brand {
+    border-color: oklch(var(--govt-green));
+  }
+  .bg-forest {
+    background-color: oklch(var(--navy));
+  }
+  .text-forest {
+    color: oklch(var(--navy));
+  }
+
   .font-display {
     font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
   }
   .font-body {
     font-family: "Outfit", sans-serif;
   }
 
+  /* Clean white card with shadow */
   .glass-card {
-    background: oklch(1 0 0 / 0.78);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid oklch(1 0 0 / 0.4);
+    background: oklch(1 0 0);
+    border: 1px solid oklch(0.88 0.01 220);
+    box-shadow: 0 2px 16px oklch(0.22 0.07 240 / 0.08), 0 1px 4px
+      oklch(0.22 0.07 240 / 0.06);
   }
 
   .glass-section {
-    background: oklch(1 0 0 / 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: oklch(0.95 0.01 220);
   }
 
+  /* Section backgrounds — light government variants */
   .section-saffron {
     background: linear-gradient(
-      135deg,
-      oklch(0.96 0.09 48 / 0.72) 0%,
-      oklch(0.97 0.05 60 / 0.65) 100%
+      160deg,
+      oklch(0.97 0.015 55),
+      oklch(0.95 0.02 50)
     );
-    backdrop-filter: blur(2px);
   }
 
   .section-green {
     background: linear-gradient(
-      135deg,
-      oklch(0.94 0.07 145 / 0.72) 0%,
-      oklch(0.96 0.04 160 / 0.65) 100%
+      160deg,
+      oklch(0.95 0.015 145),
+      oklch(0.97 0.01 145)
     );
-    backdrop-filter: blur(2px);
   }
 
   .section-blue {
     background: linear-gradient(
-      135deg,
-      oklch(0.94 0.05 230 / 0.68) 0%,
-      oklch(0.96 0.03 250 / 0.62) 100%
+      160deg,
+      oklch(0.95 0.015 225),
+      oklch(0.97 0.01 220)
     );
-    backdrop-filter: blur(2px);
   }
 
   .section-mixed {
     background: linear-gradient(
-      135deg,
-      oklch(0.96 0.07 48 / 0.62) 0%,
-      oklch(0.96 0.03 200 / 0.55) 50%,
-      oklch(0.95 0.06 145 / 0.6) 100%
+      160deg,
+      oklch(0.96 0.012 220),
+      oklch(0.97 0.015 50)
     );
-    backdrop-filter: blur(2px);
+  }
+
+  /* Section headings with saffron accent underline */
+  .section-heading {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+  }
+  .section-heading::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4rem;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      oklch(0.72 0.18 50),
+      oklch(0.45 0.14 145)
+    );
+    border-radius: 2px;
+  }
+
+  /* Subtle saffron shadow */
+  .glow-saffron {
+    box-shadow: 0 4px 16px oklch(0.72 0.18 50 / 0.3);
+  }
+
+  .glow-teal {
+    box-shadow: 0 4px 16px oklch(0.45 0.14 145 / 0.25);
+  }
+
+  /* Gradient text — saffron to navy */
+  .gradient-text-saffron {
+    background: linear-gradient(
+      90deg,
+      oklch(0.72 0.18 50),
+      oklch(0.45 0.14 145)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Card hover lift */
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px oklch(0.22 0.07 240 / 0.14);
+  }
+
+  /* Stat cards with saffron top border */
+  .stat-card {
+    background: oklch(1 0 0);
+    border: 1px solid oklch(0.88 0.01 220);
+    border-top: 3px solid oklch(0.72 0.18 50);
+    box-shadow: 0 2px 12px oklch(0.22 0.07 240 / 0.07);
+  }
+
+  /* Hero subtle blue-white gradient */
+  .hero-glow {
+    background: radial-gradient(
+      ellipse 80% 50% at 50% 0%,
+      oklch(0.75 0.08 220 / 0.2),
+      transparent 70%
+    );
+  }
+
+  /* Saffron CTA button */
+  .btn-gold {
+    background: linear-gradient(
+      135deg,
+      oklch(0.75 0.19 52),
+      oklch(0.68 0.18 47)
+    );
+    color: oklch(1 0 0);
+    font-weight: 700;
+    border: none;
+    transition: filter 0.2s ease, transform 0.15s ease;
+  }
+  .btn-gold:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+
+  /* Green accent line */
+  .emerald-line {
+    background: linear-gradient(
+      90deg,
+      oklch(0.45 0.14 145),
+      oklch(0.4 0.13 142)
+    );
   }
 }

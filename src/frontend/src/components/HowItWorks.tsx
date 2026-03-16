@@ -11,24 +11,27 @@ export default function HowItWorks() {
       icon: CheckCircle,
       titleKey: "hiw.step1.title",
       descKey: "hiw.step1.desc",
-      color: "text-saffron",
-      bg: "bg-saffron/15",
+      iconColor: "text-saffron",
+      iconBg: "bg-saffron/10",
+      accent: "oklch(0.80 0.18 72)",
     },
     {
       number: 2,
       icon: CreditCard,
       titleKey: "hiw.step2.title",
       descKey: "hiw.step2.desc",
-      color: "text-govt-green",
-      bg: "bg-govt-green/15",
+      iconColor: "text-navy",
+      iconBg: "bg-navy/10",
+      accent: "oklch(0.22 0.07 240)",
     },
     {
       number: 3,
       icon: Heart,
       titleKey: "hiw.step3.title",
       descKey: "hiw.step3.desc",
-      color: "text-navy",
-      bg: "bg-navy/15",
+      iconColor: "text-govt-green",
+      iconBg: "bg-govt-green/10",
+      accent: "oklch(0.45 0.14 145)",
     },
   ];
 
@@ -39,10 +42,10 @@ export default function HowItWorks() {
     >
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
+          <h2 className="section-heading mb-4 text-3xl font-bold text-navy md:text-4xl">
             {t(lang, "hiw.title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-lg text-gray-600 mt-4">
             {t(lang, "hiw.subtitle")}
           </p>
         </div>
@@ -54,20 +57,33 @@ export default function HowItWorks() {
               data-ocid={`how-it-works.item.${index + 1}`}
             >
               {index < steps.length - 1 && (
-                <div className="absolute left-[calc(50%+3.5rem)] top-10 hidden h-0.5 w-[calc(100%-7rem)] bg-border md:block" />
+                <div
+                  className="absolute left-[calc(50%+3.5rem)] top-10 hidden h-0.5 w-[calc(100%-7rem)] md:block"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, oklch(0.72 0.18 50 / 0.4), oklch(0.45 0.14 145 / 0.5))",
+                  }}
+                />
               )}
               <div
-                className={`relative z-10 flex h-20 w-20 items-center justify-center rounded-full ${step.bg} border-2 border-border`}
+                className={`relative z-10 flex h-20 w-20 items-center justify-center rounded-full ${step.iconBg}`}
+                style={{
+                  border: `2px solid ${step.accent.replace(")", " / 0.4)")}`,
+                  boxShadow: `0 0 20px ${step.accent.replace(")", " / 0.15)")}`,
+                }}
               >
-                <step.icon className={`h-8 w-8 ${step.color}`} />
-                <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-saffron text-xs font-bold text-white">
+                <step.icon className={`h-8 w-8 ${step.iconColor}`} />
+                <span
+                  className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white"
+                  style={{ backgroundColor: "oklch(0.72 0.18 50)" }}
+                >
                   {step.number}
                 </span>
               </div>
-              <h3 className="mt-4 text-xl font-bold text-foreground">
+              <h3 className="mt-4 text-xl font-bold text-navy">
                 {t(lang, step.titleKey)}
               </h3>
-              <p className="mt-2 max-w-xs text-muted-foreground">
+              <p className="mt-2 max-w-xs text-gray-600">
                 {t(lang, step.descKey)}
               </p>
             </div>

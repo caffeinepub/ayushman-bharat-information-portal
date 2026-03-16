@@ -191,7 +191,7 @@ export default function HowToApply() {
                 data-ocid={`apply.item.${item.step}`}
               >
                 <div className="mb-3 flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy/10 text-lg">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-card/10 text-lg">
                     {item.icon}
                   </span>
                   <span className="rounded-full bg-saffron/10 px-2.5 py-0.5 text-xs font-bold text-saffron">

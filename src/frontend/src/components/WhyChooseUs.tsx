@@ -3,17 +3,17 @@ import { t } from "@/translations";
 import { BookOpen, CheckCircle, Shield, Smartphone } from "lucide-react";
 
 const featureIcons = [Shield, CheckCircle, BookOpen, Smartphone];
-const featureBgs = [
-  "bg-saffron/15",
-  "bg-govt-green/15",
-  "bg-saffron/15",
-  "bg-govt-green/15",
+const featureIconBgs = [
+  "bg-saffron/10",
+  "bg-govt-green/10",
+  "bg-accent/30",
+  "bg-saffron/10",
 ];
-const featureTexts = [
+const featureIconColors = [
   "text-saffron",
   "text-govt-green",
+  "text-foreground",
   "text-saffron",
-  "text-govt-green",
 ];
 const featureTitleKeys = [
   "why.f1.title",
@@ -32,16 +32,23 @@ export default function WhyChooseUs() {
   const { lang } = useLanguage();
 
   return (
-    <section className="section-saffron py-16 md:py-20" data-ocid="why.section">
+    <section className="section-mixed py-16 md:py-20" data-ocid="why.section">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <span className="mb-3 inline-block rounded-full bg-govt-green/20 px-4 py-1.5 text-sm font-semibold text-govt-green">
+          <span
+            className="mb-3 inline-block rounded-full px-4 py-1.5 text-sm font-semibold"
+            style={{
+              border: "1px solid oklch(0.20 0.05 15)",
+              background: "oklch(0.14 0.04 15)",
+              color: "oklch(0.65 0.04 20)",
+            }}
+          >
             {t(lang, "why.commitment")}
           </span>
-          <h2 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl">
+          <h2 className="section-heading mb-4 font-display text-3xl font-bold text-white md:text-4xl">
             {t(lang, "why.title")}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-lg text-gray-400 mt-4">
             {t(lang, "why.subtitle")}
           </p>
         </div>
@@ -52,18 +59,23 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={titleKey}
-                className="group flex flex-col items-center text-center"
+                className="card-hover group flex flex-col items-center text-center rounded-xl p-6"
+                style={{
+                  background:
+                    "linear-gradient(135deg, oklch(0.14 0.04 15), oklch(0.11 0.03 18))",
+                  border: "1px solid oklch(0.22 0.055 15)",
+                }}
                 data-ocid={`why.item.${index + 1}`}
               >
                 <div
-                  className={`mb-5 flex h-16 w-16 items-center justify-center rounded-2xl ${featureBgs[index]} transition-transform duration-300 group-hover:scale-110`}
+                  className={`mb-5 flex h-16 w-16 items-center justify-center rounded-2xl ${featureIconBgs[index]} transition-transform duration-300 group-hover:scale-110`}
                 >
-                  <Icon className={`h-8 w-8 ${featureTexts[index]}`} />
+                  <Icon className={`h-8 w-8 ${featureIconColors[index]}`} />
                 </div>
-                <h3 className="mb-3 text-lg font-bold text-foreground">
+                <h3 className="mb-3 text-lg font-bold text-white">
                   {t(lang, titleKey)}
                 </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-gray-400">
                   {t(lang, featureDescKeys[index])}
                 </p>
               </div>
@@ -71,7 +83,14 @@ export default function WhyChooseUs() {
           })}
         </div>
 
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-6 rounded-2xl bg-navy px-8 py-6">
+        <div
+          className="mt-14 flex flex-wrap items-center justify-center gap-6 rounded-2xl px-8 py-6"
+          style={{
+            background:
+              "linear-gradient(135deg, oklch(0.12 0.04 15), oklch(0.10 0.03 15))",
+            border: "1px solid oklch(0.20 0.05 15)",
+          }}
+        >
           {[
             {
               label: lang === "en" ? "Citizens Helped" : "नागरिकों की मदद",
@@ -91,10 +110,13 @@ export default function WhyChooseUs() {
             },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-2xl font-bold text-saffron">
+              <div
+                className="text-2xl font-bold"
+                style={{ color: "oklch(0.80 0.18 72)" }}
+              >
                 {stat.value}
               </div>
-              <div className="text-sm text-white/70">{stat.label}</div>
+              <div className="text-sm text-gray-500">{stat.label}</div>
             </div>
           ))}
         </div>

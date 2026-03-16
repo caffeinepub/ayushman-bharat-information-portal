@@ -3,6 +3,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Bed, MapPin, Phone, Search } from "lucide-react";
 import { useState } from "react";
 
@@ -18,14 +25,14 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
   Cardiology: [
     {
       name: "AIIMS New Delhi - Cardiology Centre",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Ansari Nagar, New Delhi - 110029",
       phone: "011-26588500",
       beds: 120,
     },
     {
       name: "Fortis Escorts Heart Institute",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Okhla Road, New Delhi - 110025",
       phone: "011-47135000",
       beds: 310,
@@ -62,7 +69,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "Sir Ganga Ram Hospital",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Rajinder Nagar, New Delhi - 110060",
       phone: "011-25750000",
       beds: 675,
@@ -83,7 +90,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "Medanta - The Medicity",
-      city: "Gurugram",
+      city: "Delhi",
       address: "CH Baktawar Singh Road, Gurugram - 122001",
       phone: "0124-4141414",
       beds: 1250,
@@ -99,7 +106,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "AIIMS Neurology Dept.",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Ansari Nagar, New Delhi - 110029",
       phone: "011-26588500",
       beds: 200,
@@ -136,7 +143,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "AIIMS Oncology Centre",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Ansari Nagar, New Delhi - 110029",
       phone: "011-26588500",
       beds: 150,
@@ -150,7 +157,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "Rajiv Gandhi Cancer Institute",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Sector 5, Rohini, New Delhi - 110085",
       phone: "011-47022222",
       beds: 330,
@@ -166,7 +173,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
   "General Surgery": [
     {
       name: "AIIMS General Surgery",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Ansari Nagar, New Delhi - 110029",
       phone: "011-26588500",
       beds: 300,
@@ -180,7 +187,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "Safdarjung Hospital",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Ansari Nagar West, New Delhi - 110029",
       phone: "011-26707444",
       beds: 1531,
@@ -203,7 +210,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
   Pediatrics: [
     {
       name: "Kalawati Saran Children Hospital",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Bangla Sahib Marg, New Delhi - 110001",
       phone: "011-23368053",
       beds: 500,
@@ -231,7 +238,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "AIIMS Pediatrics Dept.",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Ansari Nagar, New Delhi - 110029",
       phone: "011-26588500",
       beds: 250,
@@ -240,7 +247,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
   Gynecology: [
     {
       name: "Lady Hardinge Medical College",
-      city: "New Delhi",
+      city: "Delhi",
       address: "Shaheed Bhagat Singh Marg, New Delhi - 110001",
       phone: "011-23408301",
       beds: 1500,
@@ -254,7 +261,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "JIPMER Gynecology",
-      city: "Pondicherry",
+      city: "Chennai",
       address: "Dhanvantari Nagar, Pondicherry - 605006",
       phone: "0413-2296000",
       beds: 450,
@@ -277,7 +284,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
   ENT: [
     {
       name: "Maulana Azad Medical College ENT",
-      city: "New Delhi",
+      city: "Delhi",
       address: "BSZ Marg, New Delhi - 110002",
       phone: "011-23234525",
       beds: 100,
@@ -321,7 +328,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "Shroff Eye Centre",
-      city: "New Delhi",
+      city: "Delhi",
       address: "A-9 Kailash Colony, New Delhi - 110048",
       phone: "011-49494000",
       beds: 100,
@@ -335,7 +342,7 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
     },
     {
       name: "Aravind Eye Hospital",
-      city: "Madurai",
+      city: "Chennai",
       address: "1 Anna Nagar, Madurai - 625020",
       phone: "0452-4356100",
       beds: 1224,
@@ -351,20 +358,40 @@ const hospitalsBySpecialty: Record<string, Hospital[]> = {
 };
 
 const specialtyColors: Record<string, string> = {
-  Cardiology: "border-red-300 bg-red-50 hover:bg-red-100",
-  Orthopedics: "border-blue-300 bg-blue-50 hover:bg-blue-100",
-  Neurology: "border-purple-300 bg-purple-50 hover:bg-purple-100",
-  Oncology: "border-pink-300 bg-pink-50 hover:bg-pink-100",
-  "General Surgery": "border-green-300 bg-green-50 hover:bg-green-100",
-  Pediatrics: "border-yellow-300 bg-yellow-50 hover:bg-yellow-100",
-  Gynecology: "border-rose-300 bg-rose-50 hover:bg-rose-100",
-  ENT: "border-teal-300 bg-teal-50 hover:bg-teal-100",
-  Ophthalmology: "border-indigo-300 bg-indigo-50 hover:bg-indigo-100",
+  Cardiology: "border-red-500/30 bg-red-500/10 hover:bg-red-500/20",
+  Orthopedics: "border-white/15 bg-card hover:bg-accent",
+  Neurology: "border-purple-400/30 bg-purple-500/10 hover:bg-purple-500/20",
+  Oncology: "border-pink-400/30 bg-pink-500/10 hover:bg-pink-500/20",
+  "General Surgery":
+    "border-green-400/30 bg-green-500/10 hover:bg-green-500/20",
+  Pediatrics: "border-yellow-400/30 bg-yellow-500/10 hover:bg-yellow-500/20",
+  Gynecology: "border-rose-400/30 bg-rose-500/10 hover:bg-rose-500/20",
+  ENT: "border-teal-400/30 bg-teal-500/10 hover:bg-teal-500/20",
+  Ophthalmology: "border-white/15 bg-card hover:bg-accent",
 };
+
+const cities = [
+  "Delhi",
+  "Mumbai",
+  "Kolkata",
+  "Chennai",
+  "Bengaluru",
+  "Hyderabad",
+  "Lucknow",
+  "Patna",
+  "Jaipur",
+  "Bhopal",
+  "Pune",
+  "Ahmedabad",
+  "Chandigarh",
+  "Kochi",
+  "Vellore",
+];
 
 export default function HospitalLocator() {
   const [activeSpecialty, setActiveSpecialty] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCity, setSelectedCity] = useState<string>("all");
 
   const specialties = Object.keys(hospitalsBySpecialty);
 
@@ -375,6 +402,12 @@ export default function HospitalLocator() {
       hospitals = hospitalsBySpecialty[activeSpecialty] || [];
     } else {
       hospitals = Object.values(hospitalsBySpecialty).flat();
+    }
+
+    if (selectedCity !== "all") {
+      hospitals = hospitals.filter(
+        (h) => h.city.toLowerCase() === selectedCity.toLowerCase(),
+      );
     }
 
     if (searchTerm.trim()) {
@@ -402,18 +435,41 @@ export default function HospitalLocator() {
 
       <div className="bg-gradient-to-br from-saffron/15 via-background to-govt-green/15 py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-navy md:text-5xl">
+          <h1 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">
             Find Ayushman Empanelled Hospitals
           </h1>
           <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
-            Search by specialty to find top PM-JAY empanelled hospitals near
-            your location
+            Search by city or specialty to find top PM-JAY empanelled hospitals
+            near your location
           </p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-10 md:py-14">
         <div className="mx-auto max-w-6xl">
+          {/* Search by City */}
+          <div className="mb-6">
+            <h2 className="mb-3 text-lg font-semibold text-foreground">
+              Filter by City
+            </h2>
+            <Select value={selectedCity} onValueChange={setSelectedCity}>
+              <SelectTrigger
+                className="w-full max-w-xs border-2 border-border bg-card text-foreground"
+                data-ocid="hospitals.select"
+              >
+                <SelectValue placeholder="All Cities" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">🏙️ All Cities</SelectItem>
+                {cities.map((city) => (
+                  <SelectItem key={city} value={city}>
+                    📍 {city}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
           {/* Specialty Pills */}
           <div className="mb-8">
             <h2 className="mb-4 text-lg font-semibold text-foreground">
@@ -475,18 +531,21 @@ export default function HospitalLocator() {
             )}
           </div>
 
-          {/* Active Specialty Header */}
-          {activeSpecialty && (
-            <div className="mb-6 flex items-center justify-between rounded-xl bg-gradient-to-r from-saffron/15 to-govt-green/10 px-5 py-3">
-              <div>
-                <span className="text-sm text-muted-foreground">
-                  Showing hospitals for
-                </span>
-                <h3 className="text-lg font-bold text-navy">
-                  {activeSpecialty}
-                </h3>
-              </div>
-              <Badge className="bg-saffron text-white">
+          {/* Active Filters Summary */}
+          {(activeSpecialty || selectedCity !== "all") && (
+            <div className="mb-6 flex flex-wrap items-center gap-3 rounded-xl bg-gradient-to-r from-saffron/15 to-govt-green/10 px-5 py-3">
+              <span className="text-sm text-muted-foreground">Showing:</span>
+              {selectedCity !== "all" && (
+                <Badge className="bg-saffron/20 text-saffron border-saffron/30">
+                  📍 {selectedCity}
+                </Badge>
+              )}
+              {activeSpecialty && (
+                <Badge className="bg-govt-green/20 text-govt-green border-govt-green/30">
+                  🏥 {activeSpecialty}
+                </Badge>
+              )}
+              <Badge className="bg-card/10 text-white ml-auto">
                 {filteredHospitals.length} hospital
                 {filteredHospitals.length !== 1 ? "s" : ""}
               </Badge>
@@ -500,15 +559,27 @@ export default function HospitalLocator() {
               data-ocid="hospitals.empty_state"
             >
               <p className="text-lg text-muted-foreground">
-                No hospitals found. Try a different search term or specialty.
+                No hospitals found. Try a different city, specialty, or search
+                term.
               </p>
+              <Button
+                variant="outline"
+                className="mt-4 border-saffron/40 text-saffron hover:bg-saffron/10"
+                onClick={() => {
+                  setSelectedCity("all");
+                  setActiveSpecialty(null);
+                  setSearchTerm("");
+                }}
+              >
+                Clear All Filters
+              </Button>
             </div>
           ) : (
             <>
-              {!activeSpecialty && !searchTerm && (
+              {!activeSpecialty && !searchTerm && selectedCity === "all" && (
                 <p className="mb-4 text-sm text-muted-foreground">
                   Showing all {filteredHospitals.length} hospitals. Select a
-                  specialty above to filter.
+                  city or specialty above to filter.
                 </p>
               )}
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -520,7 +591,7 @@ export default function HospitalLocator() {
                   >
                     <CardContent className="p-5">
                       <div className="mb-3 flex items-start justify-between gap-2">
-                        <h3 className="font-display text-base font-bold leading-snug text-navy">
+                        <h3 className="font-display text-base font-bold leading-snug text-foreground">
                           {hospital.name}
                         </h3>
                         <Badge
@@ -554,7 +625,7 @@ export default function HospitalLocator() {
                         </div>
 
                         <div className="flex items-center gap-2 text-muted-foreground">
-                          <Bed className="h-4 w-4 flex-shrink-0 text-navy" />
+                          <Bed className="h-4 w-4 flex-shrink-0 text-foreground" />
                           <span className="text-xs">
                             <span className="font-semibold text-foreground">
                               {hospital.beds}

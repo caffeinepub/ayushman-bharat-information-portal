@@ -148,12 +148,12 @@ export default function AyushmanCard() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, oklch(0.22 0.05 240 / 0.93) 0%, oklch(0.22 0.05 240 / 0.7) 55%, oklch(0.22 0.05 240 / 0.2) 100%)",
+              "linear-gradient(to right, oklch(0.09 0.03 15 / 0.95) 0%, oklch(0.09 0.03 15 / 0.75) 55%, oklch(0.09 0.03 15 / 0.3) 100%)",
           }}
         />
         <div className="container relative mx-auto px-4 py-16 md:py-20">
           <div className="max-w-xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 backdrop-blur-sm">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/20 px-4 py-1.5 backdrop-blur-sm">
               <span className="h-2 w-2 rounded-full bg-saffron" />
               <span className="text-sm font-medium text-white">
                 PM-JAY Digital Health Card
@@ -165,7 +165,7 @@ export default function AyushmanCard() {
                 Your Gateway to Free Healthcare
               </span>
             </h1>
-            <p className="mb-8 text-lg text-white/85">
+            <p className="mb-8 text-lg text-gray-200">
               One card. Zero payment. 27,000+ hospitals. Get your free Ayushman
               Card and unlock ₹5 lakh annual health coverage for your entire
               family.
@@ -189,7 +189,7 @@ export default function AyushmanCard() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white bg-transparent text-white hover:bg-white/10"
+                  className="border-2 border-white bg-transparent text-white hover:bg-black/20"
                 >
                   <Download className="mr-2 h-5 w-5" />
                   Download Your Guide
@@ -203,26 +203,32 @@ export default function AyushmanCard() {
       {/* Tricolor stripe */}
       <div className="flex h-1.5 w-full">
         <div className="flex-1 bg-saffron" />
-        <div className="flex-1 border-y border-border bg-white" />
+        <div
+          className="flex-1"
+          style={{ backgroundColor: "oklch(0.85 0 0)" }}
+        />
         <div className="flex-1 bg-govt-green" />
       </div>
 
       {/* What is Ayushman Card */}
-      <section className="bg-gradient-to-br from-saffron/8 to-govt-green/8 py-14 md:py-16">
+      <section className="section-saffron py-14 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-5xl">
             <div className="grid gap-10 md:grid-cols-2 items-center">
               <div>
-                <h2 className="font-display mb-4 text-3xl font-bold text-foreground md:text-4xl">
+                <h2 className="font-display mb-4 text-3xl font-bold text-white md:text-4xl">
                   What is the Ayushman Card?
                 </h2>
-                <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
+                <p className="mb-4 text-lg leading-relaxed text-gray-300">
                   The Ayushman Card (officially called the PM-JAY Card) is a
                   government-issued health card that gives eligible Indian
-                  citizens access to <strong>free cashless healthcare</strong>{" "}
+                  citizens access to{" "}
+                  <strong className="text-white">
+                    free cashless healthcare
+                  </strong>{" "}
                   at empanelled hospitals across India.
                 </p>
-                <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
+                <p className="mb-4 text-lg leading-relaxed text-gray-300">
                   The card is linked to your Aadhaar and covers your entire
                   family — no size limit, no age limit — under the Pradhan
                   Mantri Jan Arogya Yojana (PM-JAY) scheme.
@@ -236,7 +242,7 @@ export default function AyushmanCard() {
                   ].map((pt) => (
                     <li
                       key={pt}
-                      className="flex items-start gap-2 text-foreground/80"
+                      className="flex items-start gap-2 text-gray-200"
                     >
                       <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-govt-green" />
                       <span>{pt}</span>
@@ -261,13 +267,13 @@ export default function AyushmanCard() {
       </section>
 
       {/* Key Benefits */}
-      <section className="bg-gradient-to-br from-navy/5 via-background to-saffron/5 py-14 md:py-16">
+      <section className="section-blue py-14 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mb-10 text-center">
-            <h2 className="mb-3 text-3xl font-bold text-foreground md:text-4xl">
+            <h2 className="mb-3 text-3xl font-bold text-white md:text-4xl">
               Key Benefits of the Ayushman Card
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            <p className="mx-auto max-w-2xl text-lg text-gray-300">
               Everything your family needs — covered, cashless, and completely
               free under PM-JAY.
             </p>
@@ -276,19 +282,19 @@ export default function AyushmanCard() {
             {benefits.map((b, i) => (
               <Card
                 key={b.title}
-                className="border-2 hover:border-saffron/40 hover:shadow-lg transition-all"
+                className="border border-border bg-card hover:border-saffron/40 hover:shadow-lg transition-all"
                 data-ocid={`ayushman.benefit.${i + 1}`}
               >
                 <CardHeader>
                   <div className="mb-2 flex h-11 w-11 items-center justify-center rounded-xl bg-saffron/10">
                     <b.icon className="h-6 w-6 text-saffron" />
                   </div>
-                  <CardTitle className="text-lg">{b.title}</CardTitle>
+                  <CardTitle className="text-lg text-white">
+                    {b.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {b.description}
-                  </p>
+                  <p className="text-sm text-gray-300">{b.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -297,10 +303,10 @@ export default function AyushmanCard() {
       </section>
 
       {/* Eligibility */}
-      <section className="bg-gradient-to-br from-govt-green/8 to-saffron/8 py-14 md:py-16">
+      <section className="section-mixed py-14 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-5xl">
-            <h2 className="mb-10 text-center text-3xl font-bold text-foreground md:text-4xl">
+            <h2 className="mb-10 text-center text-3xl font-bold text-white md:text-4xl">
               Who is Eligible?
             </h2>
             <div className="grid gap-6 md:grid-cols-3">
@@ -309,13 +315,13 @@ export default function AyushmanCard() {
                   <span className="rounded-full bg-saffron px-3 py-1 text-xs font-bold text-white">
                     Rural
                   </span>
-                  <h3 className="font-bold text-foreground">Rural Families</h3>
+                  <h3 className="font-bold text-white">Rural Families</h3>
                 </div>
                 <ul className="space-y-2">
                   {eligibilityCriteria.rural.map((c) => (
                     <li
                       key={c}
-                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                      className="flex items-start gap-2 text-sm text-gray-300"
                     >
                       <span className="mt-0.5 text-saffron">•</span>
                       {c}
@@ -323,20 +329,20 @@ export default function AyushmanCard() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-2xl border-2 border-navy/30 bg-navy/5 p-6">
+              <div className="rounded-2xl border border-border bg-card/60 p-6">
                 <div className="mb-4 flex items-center gap-2">
                   <span className="rounded-full bg-navy px-3 py-1 text-xs font-bold text-white">
                     Urban
                   </span>
-                  <h3 className="font-bold text-foreground">Urban Workers</h3>
+                  <h3 className="font-bold text-white">Urban Workers</h3>
                 </div>
                 <ul className="space-y-2">
                   {eligibilityCriteria.urban.map((c) => (
                     <li
                       key={c}
-                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                      className="flex items-start gap-2 text-sm text-gray-300"
                     >
-                      <span className="mt-0.5 text-navy">•</span>
+                      <span className="mt-0.5 text-gray-400">•</span>
                       {c}
                     </li>
                   ))}
@@ -347,13 +353,13 @@ export default function AyushmanCard() {
                   <span className="rounded-full bg-govt-green px-3 py-1 text-xs font-bold text-white">
                     Seniors 70+
                   </span>
-                  <h3 className="font-bold text-foreground">Senior Citizens</h3>
+                  <h3 className="font-bold text-white">Senior Citizens</h3>
                 </div>
                 <ul className="space-y-2">
                   {eligibilityCriteria.seniors.map((c) => (
                     <li
                       key={c}
-                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                      className="flex items-start gap-2 text-sm text-gray-300"
                     >
                       <span className="mt-0.5 text-govt-green">•</span>
                       {c}
@@ -367,10 +373,10 @@ export default function AyushmanCard() {
       </section>
 
       {/* How to Get Your Card */}
-      <section className="bg-gradient-to-br from-navy/5 to-saffron/5 py-14 md:py-16">
+      <section className="section-saffron py-14 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl">
-            <h2 className="mb-10 text-center text-3xl font-bold text-foreground md:text-4xl">
+            <h2 className="mb-10 text-center text-3xl font-bold text-white md:text-4xl">
               How to Get Your Ayushman Card
             </h2>
             <div className="relative">
@@ -393,10 +399,10 @@ export default function AyushmanCard() {
                       }`}
                     >
                       <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
-                        <h3 className="mb-2 font-bold text-foreground">
+                        <h3 className="mb-2 font-bold text-white">
                           {step.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-gray-300">
                           {step.description}
                         </p>
                       </div>
@@ -411,26 +417,27 @@ export default function AyushmanCard() {
       </section>
 
       {/* Diseases & Specialties Covered */}
-      <section className="bg-gradient-to-br from-saffron/8 via-background to-govt-green/8 py-14 md:py-16">
+      <section className="section-green py-14 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               Diseases & Specialties Covered
             </h2>
-            <p className="mb-10 text-lg text-muted-foreground">
-              PM-JAY covers <strong>1,949+ medical procedures</strong> across
-              all major specialties — ensuring comprehensive care for your
-              entire family.
+            <p className="mb-10 text-lg text-gray-300">
+              PM-JAY covers{" "}
+              <strong className="text-white">1,949+ medical procedures</strong>{" "}
+              across all major specialties — ensuring comprehensive care for
+              your entire family.
             </p>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
               {specialties.map((s, i) => (
                 <div
                   key={s.name}
-                  className="flex items-center gap-3 rounded-xl border-2 border-border bg-card p-4 hover:border-saffron/40 hover:shadow transition-all"
+                  className="flex items-center gap-3 rounded-xl border border-border bg-card p-4 hover:border-saffron/40 hover:shadow transition-all"
                   data-ocid={`ayushman.specialty.${i + 1}`}
                 >
                   <span className="text-2xl">{s.emoji}</span>
-                  <span className="text-sm font-medium text-foreground">
+                  <span className="text-sm font-medium text-gray-200">
                     {s.name}
                   </span>
                 </div>
@@ -454,7 +461,7 @@ export default function AyushmanCard() {
             <Link to="/eligibility" data-ocid="ayushman.cta.primary_button">
               <Button
                 size="lg"
-                className="bg-white text-saffron hover:bg-white/90 font-bold"
+                className="bg-card text-saffron hover:bg-card/90 font-bold"
               >
                 Check Eligibility Now
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -469,7 +476,7 @@ export default function AyushmanCard() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white bg-transparent text-white hover:bg-white/10"
+                className="border-2 border-white bg-transparent text-white hover:bg-black/20"
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download Your Guide
