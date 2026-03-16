@@ -7,7 +7,9 @@ import {
 import Layout from "./components/Layout";
 import About from "./pages/About";
 import AskADoubtPage from "./pages/AskADoubtPage";
+import AyushmanCard from "./pages/AyushmanCard";
 import Blog from "./pages/Blog";
+import BlogPostDigitalHealth from "./pages/BlogPostDigitalHealth";
 import Contact from "./pages/Contact";
 import EligibilityChecker from "./pages/EligibilityChecker";
 import FAQ from "./pages/FAQ";
@@ -30,6 +32,12 @@ const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/about",
   component: About,
+});
+
+const ayushmanCardRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/ayushman-card",
+  component: AyushmanCard,
 });
 
 const eligibilityRoute = createRoute({
@@ -74,6 +82,12 @@ const blogRoute = createRoute({
   component: Blog,
 });
 
+const blogPostDigitalHealthRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/blog/digital-health-revolution",
+  component: BlogPostDigitalHealth,
+});
+
 const askADoubtRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/ask-a-doubt",
@@ -83,6 +97,7 @@ const askADoubtRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   indexRoute,
   aboutRoute,
+  ayushmanCardRoute,
   eligibilityRoute,
   howToApplyRoute,
   hospitalsRoute,
@@ -90,6 +105,7 @@ const routeTree = rootRoute.addChildren([
   contactRoute,
   teamRoute,
   blogRoute,
+  blogPostDigitalHealthRoute,
   askADoubtRoute,
 ]);
 

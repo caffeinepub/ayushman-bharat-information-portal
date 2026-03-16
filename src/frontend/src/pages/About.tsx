@@ -41,6 +41,33 @@ const timeline = [
   },
 ];
 
+const teamMembers = [
+  {
+    name: "Lakshya",
+    role: "Content Creator & SEO Executive",
+    emoji: "✍️",
+    description:
+      "Crafts clear, accurate, and SEO-optimized content that bridges the gap between government healthcare policies and citizens.",
+    color: "saffron",
+  },
+  {
+    name: "Yuvince",
+    role: "Design Specialist & Marketing Strategist",
+    emoji: "🎨",
+    description:
+      "Leads visual design and digital marketing campaigns to ensure PM-JAY information reaches every corner of India.",
+    color: "navy",
+  },
+  {
+    name: "Kritik",
+    role: "Analytics Coordinator & Project Manager",
+    emoji: "📊",
+    description:
+      "Tracks portal performance, user behavior, and manages project timelines to continuously improve the citizen experience.",
+    color: "govt-green",
+  },
+];
+
 export default function About() {
   return (
     <>
@@ -207,8 +234,182 @@ export default function About() {
             </p>
           </section>
 
+          {/* NHA Leadership & Governance */}
+          <section className="mb-12">
+            <h2 className="mb-6 text-3xl font-bold text-foreground">
+              NHA Leadership & Governance
+            </h2>
+            <div className="grid gap-6 md:grid-cols-3">
+              <Card className="border-navy/20 bg-gradient-to-br from-navy/5 to-transparent">
+                <CardHeader>
+                  <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-navy/10">
+                    <span className="text-2xl">🏛️</span>
+                  </div>
+                  <CardTitle className="text-lg">Chairperson</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">
+                    Cabinet Minister for Health & Family Welfare, Government of
+                    India. Provides policy direction and oversight for all
+                    Ayushman Bharat initiatives.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="border-saffron/20 bg-gradient-to-br from-saffron/5 to-transparent">
+                <CardHeader>
+                  <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-saffron/10">
+                    <span className="text-2xl">👔</span>
+                  </div>
+                  <CardTitle className="text-lg">
+                    CEO / Director General
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">
+                    National Health Authority — responsible for day-to-day
+                    PM-JAY operations, IT infrastructure, hospital empanelment,
+                    and beneficiary management.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="border-govt-green/20 bg-gradient-to-br from-govt-green/5 to-transparent">
+                <CardHeader>
+                  <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-govt-green/10">
+                    <span className="text-2xl">🤝</span>
+                  </div>
+                  <CardTitle className="text-lg">Governing Board</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">
+                    Representatives from Ministry of Health, Ministry of
+                    Finance, NITI Aayog, and State Governments to ensure federal
+                    coordination and accountability.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Ayushman Bharat Two Pillars */}
+          <section className="mb-12">
+            <h2 className="mb-6 text-3xl font-bold text-foreground">
+              Ayushman Bharat: Two Pillars
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-2xl border-2 border-saffron/30 bg-gradient-to-br from-saffron/10 to-saffron/5 p-6">
+                <div className="mb-3 flex items-center gap-3">
+                  <span className="rounded-full bg-saffron text-white text-xs font-bold px-2.5 py-1">
+                    Pillar 1
+                  </span>
+                  <h3 className="font-bold text-foreground">PM-JAY</h3>
+                </div>
+                <p className="text-sm font-semibold text-foreground mb-2">
+                  Pradhan Mantri Jan Arogya Yojana
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Health insurance scheme providing ₹5 lakh annual coverage per
+                  family for secondary and tertiary care hospitalization at
+                  27,000+ empanelled public and private hospitals across India.
+                  Covers 55 crore+ beneficiaries from poor and vulnerable
+                  families.
+                </p>
+              </div>
+              <div className="rounded-2xl border-2 border-govt-green/30 bg-gradient-to-br from-govt-green/10 to-govt-green/5 p-6">
+                <div className="mb-3 flex items-center gap-3">
+                  <span className="rounded-full bg-govt-green text-white text-xs font-bold px-2.5 py-1">
+                    Pillar 2
+                  </span>
+                  <h3 className="font-bold text-foreground">AB-HWC</h3>
+                </div>
+                <p className="text-sm font-semibold text-foreground mb-2">
+                  Ayushman Bharat – Health and Wellness Centres
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  A network of 1.5 lakh Ayushman Arogya Mandirs providing
+                  comprehensive primary care services including maternal health,
+                  child health, mental health, TB, and non-communicable diseases
+                  — free of charge at the community level.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* ₹5 Lakh Cover Explained */}
+          <section className="mb-12">
+            <h2 className="mb-6 text-3xl font-bold text-foreground">
+              The ₹5 Lakh Cover — Explained
+            </h2>
+            <div className="rounded-2xl border-2 border-saffron/40 bg-gradient-to-br from-saffron/10 via-saffron/5 to-transparent p-6 md:p-8">
+              <p className="mb-6 text-lg text-muted-foreground">
+                Every eligible family gets a health cover of{" "}
+                <strong className="text-foreground">₹5 lakh per year</strong>.
+                This cover is comprehensive, cashless, and resets every year on
+                1st April.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  {
+                    emoji: "🏥",
+                    label: "Hospitalization",
+                    detail: "Room charges, nursing, boarding, and ICU costs",
+                  },
+                  {
+                    emoji: "💊",
+                    label: "Medicines & Consumables",
+                    detail:
+                      "All medicines, implants, and consumables used during treatment",
+                  },
+                  {
+                    emoji: "🔬",
+                    label: "Diagnostics",
+                    detail:
+                      "Lab tests, imaging (X-ray, MRI, CT scan), and pathology",
+                  },
+                  {
+                    emoji: "⚕️",
+                    label: "Surgery & Procedures",
+                    detail: "1,949+ covered surgeries and day-care procedures",
+                  },
+                  {
+                    emoji: "📅",
+                    label: "Pre-Hospitalization",
+                    detail: "Medical expenses up to 3 days before admission",
+                  },
+                  {
+                    emoji: "🩺",
+                    label: "Post-Hospitalization",
+                    detail:
+                      "Follow-up and recovery expenses up to 15 days after discharge",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-start gap-3 rounded-xl bg-white/60 p-4 shadow-sm"
+                  >
+                    <span className="text-2xl">{item.emoji}</span>
+                    <div>
+                      <p className="font-semibold text-foreground">
+                        {item.label}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {item.detail}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 rounded-xl bg-saffron/20 px-5 py-4">
+                <p className="text-sm font-semibold text-foreground">
+                  🔁 The ₹5 lakh cover resets every year on 1st April — so if
+                  your family uses part of the cover, it is fully restored the
+                  following year.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Timeline */}
-          <section>
+          <section className="mb-12">
             <h2 className="mb-8 text-3xl font-bold text-foreground">
               Journey & Milestones
             </h2>
@@ -253,6 +454,64 @@ export default function About() {
                   </div>
                 ))}
               </div>
+            </div>
+          </section>
+
+          {/* Team Section */}
+          <section>
+            <h2 className="mb-4 text-3xl font-bold text-foreground">
+              Meet Our Team
+            </h2>
+            <p className="mb-8 text-lg text-muted-foreground">
+              A dedicated team works behind this portal to bring accurate,
+              accessible, and up-to-date information about PM-JAY to every
+              Indian citizen.
+            </p>
+            <div className="grid gap-6 md:grid-cols-3">
+              {teamMembers.map((member, i) => (
+                <Card
+                  key={member.name}
+                  className={`border-2 ${
+                    member.color === "saffron"
+                      ? "border-saffron/30 bg-gradient-to-br from-saffron/8 to-transparent"
+                      : member.color === "navy"
+                        ? "border-navy/30 bg-gradient-to-br from-navy/8 to-transparent"
+                        : "border-govt-green/30 bg-gradient-to-br from-govt-green/8 to-transparent"
+                  }`}
+                  data-ocid={`about.team.card.${i + 1}`}
+                >
+                  <CardHeader className="text-center pb-2">
+                    <div
+                      className={`mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full text-3xl ${
+                        member.color === "saffron"
+                          ? "bg-saffron/15"
+                          : member.color === "navy"
+                            ? "bg-navy/15"
+                            : "bg-govt-green/15"
+                      }`}
+                    >
+                      {member.emoji}
+                    </div>
+                    <CardTitle className="text-xl">{member.name}</CardTitle>
+                    <p
+                      className={`text-sm font-semibold ${
+                        member.color === "saffron"
+                          ? "text-saffron"
+                          : member.color === "navy"
+                            ? "text-navy"
+                            : "text-govt-green"
+                      }`}
+                    >
+                      {member.role}
+                    </p>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-center text-sm text-muted-foreground">
+                      {member.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </section>
         </div>

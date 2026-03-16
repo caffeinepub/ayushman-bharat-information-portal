@@ -5,7 +5,79 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  ExternalLink,
+  Globe,
+  Heart,
+  Mail,
+  Phone,
+  Smartphone,
+} from "lucide-react";
 import { useState } from "react";
+
+const helpCenters = [
+  {
+    icon: Globe,
+    title: "PM-JAY Official Portal",
+    description:
+      "Check eligibility, find hospitals, and download your Ayushman Card",
+    link: "https://pmjay.gov.in",
+    linkLabel: "pmjay.gov.in",
+    color: "saffron",
+  },
+  {
+    icon: Heart,
+    title: "National Health Authority",
+    description:
+      "Official body managing PM-JAY scheme. Policy updates and circulars",
+    link: "https://nha.gov.in",
+    linkLabel: "nha.gov.in",
+    color: "navy",
+  },
+  {
+    icon: Globe,
+    title: "ABHA Health ID Portal",
+    description: "Register and manage your Ayushman Bharat Health Account",
+    link: "https://abha.abdm.gov.in",
+    linkLabel: "abha.abdm.gov.in",
+    color: "govt-green",
+  },
+  {
+    icon: Phone,
+    title: "PM-JAY Helpline",
+    description:
+      "Call for immediate assistance with hospital admissions and queries",
+    link: "tel:14555",
+    linkLabel: "14555",
+    color: "saffron",
+  },
+  {
+    icon: Phone,
+    title: "Toll-Free Helpline",
+    description: "Free 24/7 support for all PM-JAY beneficiary queries",
+    link: "tel:18001111565",
+    linkLabel: "1800-111-565",
+    color: "navy",
+  },
+  {
+    icon: Mail,
+    title: "NHA Grievance Email",
+    description:
+      "Submit formal complaints or grievances to the National Health Authority",
+    link: "mailto:grievance@nha.gov.in",
+    linkLabel: "grievance@nha.gov.in",
+    color: "govt-green",
+  },
+  {
+    icon: Smartphone,
+    title: "PM-JAY App on Play Store",
+    description:
+      "Download the official ABHA app to manage your health ID and card",
+    link: "https://play.google.com/store/apps/details?id=in.gov.abdm.abha",
+    linkLabel: "Download on Play Store",
+    color: "saffron",
+  },
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -63,6 +135,7 @@ export default function Contact() {
                       }
                       required
                       className="mt-1 h-12"
+                      data-ocid="contact.name.input"
                     />
                   </div>
                   <div>
@@ -78,6 +151,7 @@ export default function Contact() {
                       }
                       required
                       className="mt-1 h-12"
+                      data-ocid="contact.email.input"
                     />
                   </div>
                   <div>
@@ -93,12 +167,14 @@ export default function Contact() {
                       required
                       rows={6}
                       className="mt-1"
+                      data-ocid="contact.message.textarea"
                     />
                   </div>
                   <Button
                     type="submit"
                     size="lg"
                     className="w-full bg-govt-green hover:bg-govt-green/90"
+                    data-ocid="contact.submit_button"
                   >
                     Send Message
                   </Button>
@@ -142,6 +218,87 @@ export default function Contact() {
               </CardContent>
             </Card>
           </div>
+
+          {/* Official Government Help Centers */}
+          <section className="mt-16">
+            <div className="mb-8 text-center">
+              <h2 className="mb-3 text-3xl font-bold text-foreground">
+                Official Government Help Centers
+              </h2>
+              <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+                Direct links to official government portals and helplines for
+                PM-JAY / Ayushman Bharat scheme.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {helpCenters.map((center, i) => (
+                <a
+                  key={center.title}
+                  href={center.link}
+                  target={center.link.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    center.link.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  className="group block"
+                  data-ocid={`contact.helpcenter.link.${i + 1}`}
+                >
+                  <div
+                    className={`flex h-full flex-col rounded-2xl border-2 p-5 transition-all hover:shadow-lg ${
+                      center.color === "saffron"
+                        ? "border-saffron/30 bg-gradient-to-br from-saffron/10 to-saffron/5 hover:border-saffron/60"
+                        : center.color === "navy"
+                          ? "border-navy/30 bg-gradient-to-br from-navy/8 to-navy/3 hover:border-navy/60"
+                          : "border-govt-green/30 bg-gradient-to-br from-govt-green/10 to-govt-green/5 hover:border-govt-green/60"
+                    }`}
+                  >
+                    <div className="mb-3 flex items-center gap-3">
+                      <div
+                        className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl ${
+                          center.color === "saffron"
+                            ? "bg-saffron text-white"
+                            : center.color === "navy"
+                              ? "bg-navy text-white"
+                              : "bg-govt-green text-white"
+                        }`}
+                      >
+                        <center.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="font-bold text-foreground">
+                        {center.title}
+                      </h3>
+                    </div>
+                    <p className="mb-3 flex-1 text-sm text-muted-foreground">
+                      {center.description}
+                    </p>
+                    <div className="flex items-center gap-1.5">
+                      <span
+                        className={`text-sm font-semibold ${
+                          center.color === "saffron"
+                            ? "text-saffron"
+                            : center.color === "navy"
+                              ? "text-navy"
+                              : "text-govt-green"
+                        }`}
+                      >
+                        {center.linkLabel}
+                      </span>
+                      {center.link.startsWith("http") && (
+                        <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+                      )}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-center">
+              <p className="text-sm font-semibold text-amber-800">
+                ⚠️ All PM-JAY services are completely FREE. Never pay anyone for
+                Ayushman Card registration or eligibility verification.
+              </p>
+            </div>
+          </section>
         </div>
       </div>
     </>

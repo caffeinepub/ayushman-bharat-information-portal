@@ -124,4 +124,59 @@ export const faqData = [
       },
     ],
   },
+  {
+    category: "ABHA Digital Health ID",
+    items: [
+      {
+        question: "What is ABHA ID?",
+        answer:
+          "ABHA (Ayushman Bharat Health Account) is a 14-digit health ID that creates a digital record of your health history. It is free and voluntary. You can register using your Aadhaar or mobile number at abha.abdm.gov.in or via the ABHA app.",
+      },
+      {
+        question: "How do I register for ABHA ID?",
+        answer:
+          "Visit abha.abdm.gov.in or download the ABHA Health Records app. Select registration via Aadhaar or mobile number. Enter OTP, fill in basic details, and your 14-digit ABHA ID is generated instantly. The process takes under 5 minutes.",
+      },
+      {
+        question: "Is ABHA ID linked to PM-JAY?",
+        answer:
+          "Yes, you can link your ABHA ID with your Ayushman Card. This allows all your PM-JAY treatment records to be stored digitally and accessible by your doctors with your consent.",
+      },
+      {
+        question: "What are the benefits of ABHA ID?",
+        answer:
+          "ABHA ID stores all your health records digitally, including prescriptions, test reports, and discharge summaries. You can share records with any doctor instantly. It eliminates the need to carry paper documents and helps doctors make better decisions with your complete history.",
+      },
+      {
+        question: "Is my ABHA health data secure?",
+        answer:
+          "Yes, all ABHA health records are encrypted and stored securely as per Indian data protection standards. You control who can access your data — only doctors you authorize can view your records.",
+      },
+    ],
+  },
+  {
+    category: "Grievance & Complaints",
+    items: [
+      {
+        question: "How do I file a complaint against a hospital?",
+        answer:
+          "Call the PM-JAY helpline at 14555 or email pmjay@nha.gov.in. You can also file complaints on the official PM-JAY portal. Complaints are typically resolved within 30 days.",
+      },
+      {
+        question: "What if I was charged money at an empanelled hospital?",
+        answer:
+          "PM-JAY treatment is completely free. If charged, immediately note the hospital name, amount, date, and call 14555. NHA investigates all such complaints and can de-empanel hospitals for violations.",
+      },
+      {
+        question: "How do I track my complaint status?",
+        answer:
+          "Visit pmjay.gov.in and navigate to the grievance portal. Enter your complaint number to track real-time status. You can also call the helpline for updates.",
+      },
+      {
+        question: "What if my claim is rejected?",
+        answer:
+          "Claim rejection must be communicated in writing with reasons. You can appeal within 30 days by contacting the State Health Agency (SHA) or calling 14555. NHA has an appeals committee for disputed claims.",
+      },
+    ],
+  },
 ];

@@ -1,96 +1,100 @@
+import { useLanguage } from "@/context/LanguageContext";
+import { t } from "@/translations";
 import { BookOpen, CheckCircle, Shield, Smartphone } from "lucide-react";
 
-const features = [
-  {
-    icon: Shield,
-    title: "Free & Accurate Information",
-    description:
-      "All information on this portal is completely free of cost. We regularly update our content to ensure accuracy and reliability for every citizen.",
-    color: "saffron",
-    bg: "bg-saffron/10",
-    text: "text-saffron",
-  },
-  {
-    icon: CheckCircle,
-    title: "Government-Verified Data",
-    description:
-      "Our content is sourced directly from official NHA guidelines and the National Health Authority. You can trust every piece of information here.",
-    color: "green",
-    bg: "bg-govt-green/10",
-    text: "text-govt-green",
-  },
-  {
-    icon: BookOpen,
-    title: "Plain & Simple Language",
-    description:
-      "We explain complex government schemes in simple, easy-to-understand Hindi and English so that every citizen can benefit regardless of education level.",
-    color: "saffron",
-    bg: "bg-saffron/10",
-    text: "text-saffron",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile-Friendly Design",
-    description:
-      "Our portal is designed mobile-first. Whether you're on a smartphone or a basic Android device, navigating this website is smooth and fast.",
-    color: "green",
-    bg: "bg-govt-green/10",
-    text: "text-govt-green",
-  },
+const featureIcons = [Shield, CheckCircle, BookOpen, Smartphone];
+const featureBgs = [
+  "bg-saffron/15",
+  "bg-govt-green/15",
+  "bg-saffron/15",
+  "bg-govt-green/15",
+];
+const featureTexts = [
+  "text-saffron",
+  "text-govt-green",
+  "text-saffron",
+  "text-govt-green",
+];
+const featureTitleKeys = [
+  "why.f1.title",
+  "why.f2.title",
+  "why.f3.title",
+  "why.f4.title",
+];
+const featureDescKeys = [
+  "why.f1.desc",
+  "why.f2.desc",
+  "why.f3.desc",
+  "why.f4.desc",
 ];
 
 export default function WhyChooseUs() {
+  const { lang } = useLanguage();
+
   return (
-    <section className="bg-white py-16 md:py-20" data-ocid="why.section">
+    <section className="section-saffron py-16 md:py-20" data-ocid="why.section">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <span className="mb-3 inline-block rounded-full bg-govt-green/10 px-4 py-1.5 text-sm font-semibold text-govt-green">
-            Our Commitment
+          <span className="mb-3 inline-block rounded-full bg-govt-green/20 px-4 py-1.5 text-sm font-semibold text-govt-green">
+            {t(lang, "why.commitment")}
           </span>
           <h2 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl">
-            Why Trust This Portal?
+            {t(lang, "why.title")}
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            We are dedicated to making PM-JAY information accessible, accurate,
-            and understandable for every Indian citizen.
+            {t(lang, "why.subtitle")}
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => (
-            <div
-              key={feature.title}
-              className="group flex flex-col items-center text-center"
-              data-ocid={`why.item.${index + 1}`}
-            >
+          {featureTitleKeys.map((titleKey, index) => {
+            const Icon = featureIcons[index];
+            return (
               <div
-                className={`mb-5 flex h-16 w-16 items-center justify-center rounded-2xl ${feature.bg} transition-transform duration-300 group-hover:scale-110`}
+                key={titleKey}
+                className="group flex flex-col items-center text-center"
+                data-ocid={`why.item.${index + 1}`}
               >
-                <feature.icon className={`h-8 w-8 ${feature.text}`} />
+                <div
+                  className={`mb-5 flex h-16 w-16 items-center justify-center rounded-2xl ${featureBgs[index]} transition-transform duration-300 group-hover:scale-110`}
+                >
+                  <Icon className={`h-8 w-8 ${featureTexts[index]}`} />
+                </div>
+                <h3 className="mb-3 text-lg font-bold text-foreground">
+                  {t(lang, titleKey)}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {t(lang, featureDescKeys[index])}
+                </p>
               </div>
-              <h3 className="mb-3 text-lg font-bold text-foreground">
-                {feature.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Trust bar */}
         <div className="mt-14 flex flex-wrap items-center justify-center gap-6 rounded-2xl bg-navy px-8 py-6">
           {[
-            { label: "Citizens Helped", value: "50,000+" },
-            { label: "Verified Hospitals", value: "27,000+" },
-            { label: "States Covered", value: "36" },
-            { label: "Helpline Available", value: "24/7" },
+            {
+              label: lang === "en" ? "Citizens Helped" : "नागरिकों की मदद",
+              value: "50,000+",
+            },
+            {
+              label: lang === "en" ? "Verified Hospitals" : "सत्यापित अस्पताल",
+              value: "27,000+",
+            },
+            {
+              label: lang === "en" ? "Satisfied Users" : "संतुष्ट उपयोगकर्ता",
+              value: "98%",
+            },
+            {
+              label: lang === "en" ? "Daily Visitors" : "दैनिक विजिटर",
+              value: "10,000+",
+            },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="font-display text-2xl font-bold text-saffron">
+              <div className="text-2xl font-bold text-saffron">
                 {stat.value}
-              </p>
-              <p className="text-xs text-white/70">{stat.label}</p>
+              </div>
+              <div className="text-sm text-white/70">{stat.label}</div>
             </div>
           ))}
         </div>

@@ -78,6 +78,45 @@ const requiredDocuments = [
   },
 ];
 
+const onlineSteps = [
+  {
+    step: 1,
+    icon: "📱",
+    title: "Download ABHA App",
+    detail:
+      "Download the ABHA Health Records app from Google Play Store or Apple App Store. The app is free.",
+    link: "https://play.google.com/store/apps/details?id=in.gov.abdm.abha",
+    linkText: "Download on Play Store",
+  },
+  {
+    step: 2,
+    icon: "🔐",
+    title: "Register with Aadhaar OTP",
+    detail:
+      "Open the app and select 'Create ABHA'. Choose Aadhaar-based registration and enter the OTP received on your linked mobile number.",
+    link: "https://abha.abdm.gov.in",
+    linkText: "Register on Website",
+  },
+  {
+    step: 3,
+    icon: "🔗",
+    title: "Link ABHA with PM-JAY",
+    detail:
+      "Inside the ABHA app, go to 'Link Health Programs'. Enter your family details to link your ABHA ID with your PM-JAY Ayushman Card record.",
+    link: null,
+    linkText: null,
+  },
+  {
+    step: 4,
+    icon: "⬇️",
+    title: "Download Digital Ayushman Card",
+    detail:
+      "Once linked, download your digital Ayushman Card directly from the app. Use it at any empanelled hospital for cashless treatment.",
+    link: "https://pmjay.gov.in",
+    linkText: "Official PM-JAY Portal",
+  },
+];
+
 export default function HowToApply() {
   return (
     <>
@@ -132,6 +171,72 @@ export default function HowToApply() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Online Application via ABHA */}
+        <div className="mx-auto mt-12 max-w-4xl">
+          <h2 className="mb-3 text-2xl font-bold text-foreground">
+            Apply Online via ABHA App or Official Portal
+          </h2>
+          <p className="mb-6 text-muted-foreground">
+            You can also get your Ayushman Card digitally through the ABHA app —
+            without visiting any centre.
+          </p>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {onlineSteps.map((item) => (
+              <div
+                key={item.step}
+                className="rounded-xl border border-border bg-gradient-to-br from-navy/5 to-transparent p-5 shadow-sm"
+                data-ocid={`apply.item.${item.step}`}
+              >
+                <div className="mb-3 flex items-center gap-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy/10 text-lg">
+                    {item.icon}
+                  </span>
+                  <span className="rounded-full bg-saffron/10 px-2.5 py-0.5 text-xs font-bold text-saffron">
+                    Step {item.step}
+                  </span>
+                </div>
+                <h3 className="mb-1.5 font-bold text-foreground">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.detail}
+                </p>
+                {item.link && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-govt-green hover:underline"
+                    data-ocid={`apply.item.${item.step}.link`}
+                  >
+                    {item.linkText} →
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <a
+              href="https://abha.abdm.gov.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-govt-green px-4 py-2.5 text-sm font-semibold text-white hover:bg-govt-green/90 transition-colors"
+              data-ocid="apply.abha.primary_button"
+            >
+              Register ABHA at abha.abdm.gov.in
+            </a>
+            <a
+              href="https://pmjay.gov.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-saffron/50 bg-saffron/10 px-4 py-2.5 text-sm font-semibold text-saffron hover:bg-saffron hover:text-white transition-colors"
+              data-ocid="apply.pmjay.secondary_button"
+            >
+              Visit pmjay.gov.in
+            </a>
           </div>
         </div>
 

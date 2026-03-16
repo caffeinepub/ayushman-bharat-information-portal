@@ -39,7 +39,7 @@ const schemes = [
 export default function SchemeComponents() {
   return (
     <section
-      className="bg-background py-16 md:py-20"
+      className="bg-gradient-to-br from-navy/5 via-govt-green/8 to-saffron/10 py-16 md:py-20"
       data-ocid="scheme.section"
     >
       <div className="container mx-auto px-4">
